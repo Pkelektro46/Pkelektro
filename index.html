@@ -185,8 +185,10 @@
 <body>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <button class="lightbox-close">✕</button>
-  <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <button onclick="event.stopPropagation(); lightboxNav(-1)" style="position:absolute; left:1rem; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.2); border:none; color:#fff; font-size:2rem; cursor:pointer; padding:0.5rem 1rem; border-radius:8px;">&#8249;</button>
+  <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
+  <button onclick="event.stopPropagation(); lightboxNav(1)" style="position:absolute; right:1rem; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.2); border:none; color:#fff; font-size:2rem; cursor:pointer; padding:0.5rem 1rem; border-radius:8px;">&#8250;</button>
 </div>
 
 <a href="https://wa.me/31685047832" class="wa-float" target="_blank">💬</a>
@@ -458,16 +460,32 @@
 </footer>
 
 <script>
+let lightboxImages = [];
+let lightboxIndex = 0;
+
 function openLightbox(src) {
+  lightboxImages = Array.from(document.querySelectorAll('.foto-item')).map(img => img.src);
+  lightboxIndex = lightboxImages.indexOf(src);
   document.getElementById('lightbox-img').src = src;
   document.getElementById('lightbox').classList.add('active');
   document.body.style.overflow = 'hidden';
 }
+
+function lightboxNav(dir) {
+  lightboxIndex = (lightboxIndex + dir + lightboxImages.length) % lightboxImages.length;
+  document.getElementById('lightbox-img').src = lightboxImages[lightboxIndex];
+}
+
 function closeLightbox() {
   document.getElementById('lightbox').classList.remove('active');
   document.body.style.overflow = '';
 }
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') lightboxNav(1);
+  if (e.key === 'ArrowLeft') lightboxNav(-1);
+});
 async function verstuurOfferte() {
   const naam = document.getElementById('naam').value.trim();
   const tel = document.getElementById('tel').value.trim();
