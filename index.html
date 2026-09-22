@@ -100,6 +100,51 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
   .dienst-link { color: var(--accent); font-size: 0.85rem; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
   .dienst-link:hover { color: var(--accent-dark); }
 
+  /* MEER DIENSTEN - tags */
+  .meer-diensten { margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--border); }
+  .meer-diensten-sub { color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 2.5rem; max-width: 560px; }
+  .meer-cat { margin-bottom: 2rem; }
+  .meer-cat h4 {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.05rem;
+    text-transform: uppercase; letter-spacing: 0.5px; color: var(--black);
+    margin-bottom: 0.9rem; display: flex; align-items: center; gap: 0.6rem;
+  }
+  .meer-cat h4::before { content: ''; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+  .tag-wrap { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .tag {
+    display: inline-block; padding: 0.5rem 1rem; background: var(--gray);
+    border: 1px solid var(--border); border-radius: 100px;
+    font-size: 0.85rem; font-weight: 600; color: var(--black);
+    text-decoration: none; transition: all 0.2s;
+  }
+  .tag:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  @media (max-width: 768px) {
+    .tag { font-size: 0.8rem; padding: 0.45rem 0.9rem; }
+  }
+
+  /* MOBIEL UITKLAP-MENU voor Diensten */
+  .mobile-menu-toggle {
+    display: flex; align-items: center; justify-content: space-between; width: 100%;
+    padding: 1rem 2.5rem; color: var(--black); background: none; border: none;
+    font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 0.95rem;
+    border-bottom: 1px solid var(--border); cursor: pointer; text-align: left;
+  }
+  .mobile-chevron { transition: transform 0.25s; color: var(--muted); font-size: 0.75rem; }
+  .mobile-menu-item.open .mobile-chevron { transform: rotate(180deg); color: var(--accent); }
+  .mobile-submenu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: var(--gray); }
+  .mobile-menu-item.open .mobile-submenu { max-height: 1000px; }
+  .mobile-subcat { padding: 0.9rem 2.5rem 0.3rem; }
+  .mobile-subcat h5 {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 0.8rem;
+    text-transform: uppercase; letter-spacing: 0.5px; color: var(--black); margin-bottom: 0.3rem;
+  }
+  .mobile-subcat a {
+    display: block; padding: 0.5rem 0; color: var(--muted); text-decoration: none;
+    font-size: 0.85rem; border-bottom: 1px solid var(--border);
+  }
+  .mobile-subcat a:last-child { border-bottom: none; }
+  .mobile-see-all { display: block; padding: 0.9rem 2.5rem 1.1rem; color: var(--accent); font-weight: 700; font-size: 0.88rem; text-decoration: none; }
+
   /* LIGHTBOX */
   .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 9999; align-items: center; justify-content: center; }
   .lightbox.active { display: flex; }
@@ -221,7 +266,44 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
   <a class="nav-cta" href="#offerte">Gratis offerte</a>
 </nav>
  <div class="nav-mobile-menu" id="navMobileMenu">
-  <a href="#diensten" onclick="toggleMobileMenu()">Diensten</a>
+  <div class="mobile-menu-item" id="mobileDienstenItem">
+    <button class="mobile-menu-toggle" onclick="toggleDienstenSub()">
+      Diensten <span class="mobile-chevron">&#9660;</span>
+    </button>
+    <div class="mobile-submenu">
+      <div class="mobile-subcat">
+        <h5>Groepenkast & meterkast</h5>
+        <a href="#offerte" onclick="toggleMobileMenu()">Groepenkast / meterkast vervangen</a>
+        <a href="#offerte" onclick="toggleMobileMenu()">Groepenkast uitbreiden</a>
+        <a href="#offerte" onclick="toggleMobileMenu()">Extra groep aanleggen</a>
+      </div>
+      <div class="mobile-subcat">
+        <h5>Aansluitingen</h5>
+        <a href="#offerte" onclick="toggleMobileMenu()">Perilex installatie</a>
+      </div>
+      <div class="mobile-subcat">
+        <h5>Schakelmateriaal</h5>
+        <a href="#offerte" onclick="toggleMobileMenu()">Stopcontact aansluiten</a>
+        <a href="#offerte" onclick="toggleMobileMenu()">Schakelaar aansluiten</a>
+        <a href="#offerte" onclick="toggleMobileMenu()">Buiten schakelmateriaal</a>
+        <a href="#offerte" onclick="toggleMobileMenu()">UTP & coax aansluiten</a>
+      </div>
+      <div class="mobile-subcat">
+        <h5>Verlichting, domotica & beveiliging</h5>
+        <a href="#offerte" onclick="toggleMobileMenu()">Binnenverlichting</a>
+        <a href="#offerte" onclick="toggleMobileMenu()">Buitenverlichting</a>
+        <a href="#offerte" onclick="toggleMobileMenu()">Domotica</a>
+        <a href="#offerte" onclick="toggleMobileMenu()">Camera-installatie</a>
+      </div>
+      <div class="mobile-subcat">
+        <h5>Keuringen & storing</h5>
+        <a href="#offerte" onclick="toggleMobileMenu()">NEN 1010 / NEN 3140 keuring</a>
+        <a href="#offerte" onclick="toggleMobileMenu()">Installatie check</a>
+        <a href="#offerte" onclick="toggleMobileMenu()">Storing & stroomuitval</a>
+      </div>
+      <a href="#diensten" class="mobile-see-all" onclick="toggleMobileMenu()">Bekijk alle diensten &rarr;</a>
+    </div>
+  </div>
   <a href="#over" onclick="toggleMobileMenu()">Over ons</a>
   <a href="#certificaten" onclick="toggleMobileMenu()">Certificaten</a>
   <a href="#offerte" onclick="toggleMobileMenu()">Offerte</a>
@@ -379,6 +461,58 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
       </div>
 
     </div>
+
+    <div class="meer-diensten">
+      <span class="section-tag">En nog veel meer</span>
+      <h2 class="section-title">Al onze werkzaamheden</h2>
+      <p class="meer-diensten-sub">Naast bovenstaande diensten voeren wij ook onderstaande werkzaamheden uit. Staat uw klus er niet bij? Neem gerust contact op.</p>
+
+      <div class="meer-cat">
+        <h4>Groepenkast & meterkast</h4>
+        <div class="tag-wrap">
+          <a href="#offerte" class="tag">Groepenkast / meterkast vervangen</a>
+          <a href="#offerte" class="tag">Groepenkast uitbreiden</a>
+          <a href="#offerte" class="tag">Extra groep aanleggen</a>
+        </div>
+      </div>
+
+      <div class="meer-cat">
+        <h4>Aansluitingen</h4>
+        <div class="tag-wrap">
+          <a href="#offerte" class="tag">Perilex installatie</a>
+        </div>
+      </div>
+
+      <div class="meer-cat">
+        <h4>Schakelmateriaal</h4>
+        <div class="tag-wrap">
+          <a href="#offerte" class="tag">Stopcontact aansluiten</a>
+          <a href="#offerte" class="tag">Schakelaar aansluiten</a>
+          <a href="#offerte" class="tag">Buiten schakelmateriaal</a>
+          <a href="#offerte" class="tag">UTP & coax aansluiten</a>
+        </div>
+      </div>
+
+      <div class="meer-cat">
+        <h4>Verlichting, domotica & beveiliging</h4>
+        <div class="tag-wrap">
+          <a href="#offerte" class="tag">Binnenverlichting</a>
+          <a href="#offerte" class="tag">Buitenverlichting</a>
+          <a href="#offerte" class="tag">Domotica</a>
+          <a href="#offerte" class="tag">Camera-installatie</a>
+        </div>
+      </div>
+
+      <div class="meer-cat">
+        <h4>Keuringen & storing</h4>
+        <div class="tag-wrap">
+          <a href="#offerte" class="tag">NEN 1010 / NEN 3140 keuring</a>
+          <a href="#offerte" class="tag">Installatie check</a>
+          <a href="#offerte" class="tag">Storing & stroomuitval</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -485,6 +619,10 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
 function toggleMobileMenu() {
   document.getElementById('navMobileMenu').classList.toggle('active');
   document.querySelector('.nav-hamburger').classList.toggle('active');
+}
+
+function toggleDienstenSub() {
+  document.getElementById('mobileDienstenItem').classList.toggle('open');
 }
  let lightboxImages = [];
 let lightboxIndex = 0;
