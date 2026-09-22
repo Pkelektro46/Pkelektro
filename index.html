@@ -34,6 +34,21 @@
   .nav-links { display: flex; gap: 2rem; }
   .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 600; transition: color 0.2s; }
   .nav-links a:hover { color: var(--black); }
+
+  .nav-dropdown { position: relative; display: flex; align-items: center; }
+  .nav-dropdown::after { content: ''; position: absolute; top: 100%; left: -2rem; right: -2rem; height: 14px; }
+  .mega-menu {
+    display: none; position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%);
+    background: #fff; border: 1px solid var(--border); border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.14); padding: 1.75rem 2.25rem; gap: 2.5rem; z-index: 250;
+  }
+  .nav-dropdown:hover .mega-menu { display: flex; }
+  .mega-col { display: flex; flex-direction: column; min-width: 165px; }
+  .mega-col h5 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent); margin: 1.1rem 0 0.5rem; }
+  .mega-col h5:first-child { margin-top: 0; }
+  .mega-col a { color: var(--black); text-decoration: none; font-size: 0.85rem; padding: 0.3rem 0; font-weight: 500; white-space: nowrap; }
+  .mega-col a:hover { color: var(--accent); }
+  .mega-see-all { display: block; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--accent) !important; font-weight: 700 !important; }
   .nav-cta { background: var(--accent); color: #fff; padding: 0.55rem 1.4rem; font-weight: 700; font-size: 0.85rem; text-decoration: none; transition: background 0.2s; }
   .nav-cta:hover { background: var(--accent-dark); }
    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
@@ -256,7 +271,46 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
   </button>
   <a href="#" class="nav-logo">⚡ PK <span>ELEKTRO</span></a>
   <div class="nav-links">
-    <a href="#diensten">Diensten</a>
+    <div class="nav-dropdown">
+      <a href="#diensten">Diensten</a>
+      <div class="mega-menu">
+        <div class="mega-col">
+          <h5>Groepenkast & meterkast</h5>
+          <a href="#offerte">Groepenkast vervangen</a>
+          <a href="#offerte">Groepenkast uitbreiden</a>
+          <a href="#offerte">Extra groep aanleggen</a>
+          <h5>Laadpalen</h5>
+          <a href="#offerte">Laadpaal installatie</a>
+        </div>
+        <div class="mega-col">
+          <h5>Aansluitingen</h5>
+          <a href="#offerte">Perilex installatie</a>
+          <h5>Bedrading & installatie</h5>
+          <a href="#offerte">Bedrading aanleggen/vernieuwen</a>
+        </div>
+        <div class="mega-col">
+          <h5>Schakelmateriaal</h5>
+          <a href="#offerte">Stopcontact aansluiten</a>
+          <a href="#offerte">Schakelaar aansluiten</a>
+          <a href="#offerte">Buiten schakelmateriaal</a>
+          <a href="#offerte">UTP & coax aansluiten</a>
+          <h5>Nieuwbouw & renovatie</h5>
+          <a href="#offerte">Nieuwbouw & verbouwing</a>
+        </div>
+        <div class="mega-col">
+          <h5>Verlichting, domotica & beveiliging</h5>
+          <a href="#offerte">Binnenverlichting</a>
+          <a href="#offerte">Buitenverlichting</a>
+          <a href="#offerte">Domotica</a>
+          <a href="#offerte">Camera-installatie</a>
+          <h5>Keuringen & storing</h5>
+          <a href="#offerte">NEN 1010 / NEN 3140 keuring</a>
+          <a href="#offerte">Installatie check</a>
+          <a href="#offerte">Storing & stroomuitval</a>
+          <a href="#diensten" class="mega-see-all">Bekijk alle diensten &rarr;</a>
+        </div>
+      </div>
+    </div>
     <a href="#over">Over ons</a>
     <a href="#certificaten">Certificaten</a>
     <a href="#offerte">Offerte</a>
@@ -720,22 +774,9 @@ async function verstuurOfferte() {
     <h2 style="font-family: 'Barlow Condensed', sans-serif; font-size: 2.5rem; font-weight: 900; margin-bottom: 1rem;">WAT KLANTEN ZEGGEN</h2>
     <p style="color: #666; margin-bottom: 2.5rem;">Tevreden klanten in Bergen op Zoom, Roosendaal en omgeving.</p>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
-      <div style="background: #fff; border-radius: 12px; padding: 2rem; text-align: left; box-shadow: 0 2px 12px rgba(0,0,0,0.07);">
-        <div style="color: #00B37A; font-size: 1.2rem; margin-bottom: 0.75rem;">★★★★★</div>
-        <p style="color: #1a1a1a; margin-bottom: 1rem;">"Snel, netjes en professioneel. PK Elektro heeft onze meterkast vernieuwd en alles perfect achtergelaten."</p>
-        <p style="font-weight: 700; font-size: 0.9rem;">– Mark , Bergen op Zoom</p>
-      </div>
-      <div style="background: #fff; border-radius: 12px; padding: 2rem; text-align: left; box-shadow: 0 2px 12px rgba(0,0,0,0.07);">
-        <div style="color: #00B37A; font-size: 1.2rem; margin-bottom: 0.75rem;">★★★★★</div>
-        <p style="color: #1a1a1a; margin-bottom: 1rem;">"Zeer vakkundig werk. Binnen een dag alles geïnstalleerd, nette afwerking en goede prijs."</p>
-        <p style="font-weight: 700; font-size: 0.9rem;">– Anoniem., Roosendaal</p>
-      </div>
-      <div style="background: #fff; border-radius: 12px; padding: 2rem; text-align: left; box-shadow: 0 2px 12px rgba(0,0,0,0.07);">
-        <div style="color: #00B37A; font-size: 1.2rem; margin-bottom: 0.75rem;">★★★★★</div>
-        <p style="color: #1a1a1a; margin-bottom: 1rem;">"Altijd bereikbaar en eerlijk advies. Aanrader voor iedereen in de regio!"</p>
-        <p style="font-weight: 700; font-size: 0.9rem;">– John, Breda</p>
-      </div>
+    <div style="margin-bottom: 3rem;">
+      <div class="sk-ww-google-reviews" data-embed-id="25716065"></div>
+      <script src="https://widgets.sociablekit.com/google-reviews/widget.js" defer></script>
     </div>
 
 <a href="https://g.page/r/CfcQewPLruxkEBM/review" target="_blank" style="display: inline-block; background: #00B37A; color: #fff; padding: 1rem 2.5rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 1rem;">⭐ Laat een review achter</a>
