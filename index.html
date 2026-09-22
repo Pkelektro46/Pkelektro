@@ -41,7 +41,8 @@
   .nav-hamburger.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
   .nav-hamburger.active span:nth-child(2) { opacity: 0; }
   .nav-hamburger.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
-.nav-mobile-menu { display: none; flex-direction: column; position: fixed; top: 64px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 8px 20px rgba(0,0,0,0.08); z-index: 199; max-height: calc(100vh - 64px); overflow-y: auto; -webkit-overflow-scrolling: touch; }  .nav-mobile-menu.active { display: flex; }
+.nav-mobile-menu { display: none; flex-direction: column; position: fixed; top: 64px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 8px 20px rgba(0,0,0,0.08); z-index: 199; max-height: calc(100vh - 64px); overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+  body.menu-open { overflow: hidden; }  .nav-mobile-menu.active { display: flex; }
   .nav-mobile-menu a { padding: 1rem 2.5rem; color: var(--black); text-decoration: none; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid var(--border); }
   .nav-mobile-menu a:last-child { border-bottom: none; }
   .nav-mobile-menu a:hover { background: var(--gray); }
@@ -300,6 +301,18 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
         <a href="#offerte" onclick="toggleMobileMenu()">Installatie check</a>
         <a href="#offerte" onclick="toggleMobileMenu()">Storing & stroomuitval</a>
       </div>
+      <div class="mobile-subcat">
+        <h5>Laadpalen</h5>
+        <a href="#offerte" onclick="toggleMobileMenu()">Laadpaal installatie</a>
+      </div>
+      <div class="mobile-subcat">
+        <h5>Bedrading & installatie</h5>
+        <a href="#offerte" onclick="toggleMobileMenu()">Bedrading aanleggen/vernieuwen</a>
+      </div>
+      <div class="mobile-subcat">
+        <h5>Nieuwbouw & renovatie</h5>
+        <a href="#offerte" onclick="toggleMobileMenu()">Nieuwbouw & verbouwing</a>
+      </div>
       <a href="#diensten" class="mobile-see-all" onclick="toggleMobileMenu()">Bekijk alle diensten &rarr;</a>
     </div>
   </div>
@@ -462,7 +475,6 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
     </div>
 
     <div class="meer-diensten">
-      <span class="section-tag">En nog veel meer</span>
       <h2 class="section-title">Al onze werkzaamheden</h2>
       <p class="meer-diensten-sub">Naast bovenstaande diensten voeren wij ook onderstaande werkzaamheden uit. Staat uw klus er niet bij? Neem gerust contact op.</p>
 
@@ -508,6 +520,27 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
           <a href="#offerte" class="tag">NEN 1010 / NEN 3140 keuring</a>
           <a href="#offerte" class="tag">Installatie check</a>
           <a href="#offerte" class="tag">Storing & stroomuitval</a>
+        </div>
+      </div>
+
+      <div class="meer-cat">
+        <h4>Laadpalen</h4>
+        <div class="tag-wrap">
+          <a href="#offerte" class="tag">Laadpaal installatie</a>
+        </div>
+      </div>
+
+      <div class="meer-cat">
+        <h4>Bedrading & installatie</h4>
+        <div class="tag-wrap">
+          <a href="#offerte" class="tag">Bedrading aanleggen/vernieuwen</a>
+        </div>
+      </div>
+
+      <div class="meer-cat">
+        <h4>Nieuwbouw & renovatie</h4>
+        <div class="tag-wrap">
+          <a href="#offerte" class="tag">Nieuwbouw & verbouwing</a>
         </div>
       </div>
     </div>
@@ -618,6 +651,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
 function toggleMobileMenu() {
   document.getElementById('navMobileMenu').classList.toggle('active');
   document.querySelector('.nav-hamburger').classList.toggle('active');
+  document.body.classList.toggle('menu-open');
 }
 
 function toggleDienstenSub() {
