@@ -57,6 +57,8 @@ gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personali
   }
   .nav-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.7rem; color: var(--black); text-decoration: none; }
   .nav-logo span { color: var(--accent); }
+  .nav-logo { display: flex; align-items: center; }
+  .nav-logo-img { height: 54px; width: auto; display: block; }
   .nav-links { display: flex; gap: 2rem; }
   .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 600; transition: color 0.2s; }
   .nav-links a:hover { color: var(--black); }
@@ -327,7 +329,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
    <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
-  <a href="#" class="nav-logo">⚡ PK <span>ELEKTRO</span></a>
+  <a href="#" class="nav-logo" aria-label="PK Elektro"><img src="pk-elektro-logo.png" alt="PK Elektro – elektricien" class="nav-logo-img" width="53" height="46"></a>
   <div class="nav-links">
     <div class="nav-dropdown">
       <a href="#diensten">Diensten</a>
@@ -876,7 +878,7 @@ async function verstuurOfferte() {
 </section>
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">⚡ PK <span>ELEKTRO</span></div>
+    <div class="footer-logo"><img src="pk-elektro-logo-wit.png" alt="PK Elektro" width="50" height="44" style="height:44px;width:auto;display:block"></div>
     <div class="footer-info">KVK: 87921529 · © 2026 PK Elektro · Alle rechten voorbehouden</div>
   </div>
 </footer>
