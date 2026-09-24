@@ -108,6 +108,8 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
   .btn-primary:hover { background: var(--accent-dark); }
   .btn-whatsapp { background: #25D366; color: #fff; padding: 0.9rem 2rem; font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 0.95rem; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; transition: background 0.2s; }
   .btn-whatsapp:hover { background: #1ebe5d; }
+  .btn-call { background: #F5B800; color: #111; padding: 0.9rem 2rem; font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 0.95rem; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; transition: background 0.2s; }
+  .btn-call:hover { background: #d9a300; }
   .btn-ghost { background: transparent; color: #fff; padding: 0.9rem 2rem; font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.3); cursor: pointer; display: inline-block; text-decoration: none; transition: border-color 0.2s; }
   .btn-ghost:hover { border-color: #fff; }
   .hero-stats { display: flex; gap: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; flex-wrap: wrap; }
@@ -324,7 +326,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
 @media (prefers-reduced-motion: reduce) { .hero-slide { transition: none; } }
 .hero h1, .hero-slogan, .hero-stats { text-shadow: 0 2px 14px rgba(0,0,0,0.6); }
 
-.call-float{position:fixed;bottom:6.2rem;right:2rem;background:#F5B800;color:#111;height:58px;padding:0 1.2rem;border-radius:29px;display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:1rem;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,.35);z-index:999;transition:transform .2s}.call-float:hover{transform:scale(1.05)}@media(max-width:600px){.call-float{right:1rem;bottom:5.4rem;height:52px}.wa-float{right:1rem!important;bottom:1rem!important}}
+.nav-tel{color:#111;font-weight:700;font-size:.9rem;text-decoration:none;margin-right:1rem;white-space:nowrap}.nav-tel:hover{color:var(--accent)}@media(max-width:900px){.nav-tel{display:none}}
 </style>
 </head>
 <body>
@@ -336,7 +338,6 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
   <button onclick="event.stopPropagation(); lightboxNav(1)" style="position:absolute; right:1rem; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.2); border:none; color:#fff; font-size:2rem; cursor:pointer; padding:0.5rem 1rem; border-radius:8px;">&#8250;</button>
 </div>
 
-<a href="tel:+31685047832" class="call-float" aria-label="Bel PK Elektro">📞 Bel ons</a>
 <a href="https://wa.me/31685047832" class="wa-float" target="_blank">💬</a>
 
 <nav>
@@ -391,9 +392,11 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
     <a href="#contact">Contact</a>
  
   </div>
+  <a class="nav-tel" href="tel:+31685047832">📞 Bel direct</a>
   <a class="nav-cta" href="#offerte">Gratis offerte</a>
 </nav>
  <div class="nav-mobile-menu" id="navMobileMenu">
+  <a href="tel:+31685047832" style="color:var(--accent-dark)">📞 Bel direct</a>
   <div class="mobile-menu-item" id="mobileDienstenItem">
     <button class="mobile-menu-toggle" onclick="toggleDienstenSub()">
       Diensten <span class="mobile-chevron">&#9660;</span>
@@ -458,6 +461,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
     <p class="hero-slogan">Van meterkast tot laadpaal — vakkundig, veilig en zonder gedoe.</p>
     <div class="hero-btns">
       <a href="#offerte" class="btn-primary">Gratis offerte aanvragen</a>
+      <a href="tel:+31685047832" class="btn-call">📞 Bel direct</a>
       <a href="https://wa.me/31685047832" class="btn-whatsapp" target="_blank">💬 WhatsApp</a>
       <a href="#diensten" class="btn-ghost">Bekijk diensten</a>
     </div>
@@ -696,6 +700,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
   <div class="contact-inner">
     <div class="contact-left"><h2>Direct contact?</h2><p>Bel, app of mail ons — wij staan altijd klaar om u te helpen.</p></div>
     <div class="contact-right">
+      <a href="tel:+31685047832" class="contact-item">📞 Bel direct</a>
       <a href="https://wa.me/31685047832" class="contact-item" target="_blank">💬 WhatsApp ons direct</a>
       <a href="mailto:info@pk-elektro.nl" class="contact-item">✉ info@pk-elektro.nl</a>
     </div>
