@@ -1,7 +1,21 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
- <!-- Start cookieyes banner --> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/6c3d7d5b536f0940a0d6b87baa94b870/script.js"></script> <!-- End cookieyes banner -->
+ <script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
+(function(){
+  function has(){try{return /(?:^|;\s*)cookieyes-consent=[^;]*analytics:yes/.test(document.cookie);}catch(e){return false;}}
+  function upd(ok){gtag('consent','update',{analytics_storage:ok?'granted':'denied'});}
+  if(has()) upd(true);
+  document.addEventListener('cookieyes_consent_update',function(e){
+    var a=(e.detail&&e.detail.accepted)||[];
+    upd(a.indexOf('analytics')>-1 || has());
+  });
+})();
+</script>
+<!-- Start cookieyes banner --> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/6c3d7d5b536f0940a0d6b87baa94b870/script.js"></script> <!-- End cookieyes banner -->
  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6KTJ1FLW2B"></script>
  <script>
@@ -303,7 +317,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lightbox-close" onclick="closeLightbox()">×</button>
   <button onclick="event.stopPropagation(); lightboxNav(-1)" style="position:absolute; left:1rem; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.2); border:none; color:#fff; font-size:2rem; cursor:pointer; padding:0.5rem 1rem; border-radius:8px;">&#8249;</button>
-  <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()"><div class="lb-counter" id="lb-counter"></div>
+  <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation(); lightboxNav(1)" style="cursor:pointer"><div class="lb-counter" id="lb-counter"></div>
   <button onclick="event.stopPropagation(); lightboxNav(1)" style="position:absolute; right:1rem; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.2); border:none; color:#fff; font-size:2rem; cursor:pointer; padding:0.5rem 1rem; border-radius:8px;">&#8250;</button>
 </div>
 
@@ -715,7 +729,7 @@ function openLightbox(src, group) {
 
 function showLightbox() {
   document.getElementById('lightbox-img').src = lightboxImages[lightboxIndex];
-  document.getElementById('lb-counter').textContent = lightboxImages.length > 1 ? (lightboxIndex + 1) + ' / ' + lightboxImages.length : '';
+  
 }
 
 function lightboxNav(dir) {
@@ -796,15 +810,15 @@ document.addEventListener('DOMContentLoaded', () => {
       wrap.appendChild(b);
       wrap.appendChild(link);
     }
-    // Echte 'Meer foto's'-knop als er meerdere foto's zijn
+    // 'Meer foto's'-knop bij alle diensten
     const fotos = rij.querySelector('.dienst-fotos');
     if (fotos) {
       const imgs = fotos.querySelectorAll('.foto-item');
-      if (imgs.length > 1) {
+      if (imgs.length > 0) {
         const b = document.createElement('button');
         b.className = 'meer-fotos-btn';
         b.type = 'button';
-        b.textContent = "📷 Meer foto's (" + imgs.length + ")";
+        b.textContent = "📷 Meer foto's";
         b.addEventListener('click', e => { e.stopPropagation(); openLightbox(imgs[0].src, fotos); });
         fotos.appendChild(b);
       }
