@@ -103,10 +103,10 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
   .dienst-rij:last-child { border-bottom: none; }
   .dienst-rij:hover { background: #fafafa; }
 .dienst-fotos { display: block; overflow: hidden; position: relative; }
-.dienst-fotos::after { content: '📷 Meer foto\'s'; position: absolute; bottom: 1rem; right: 1rem; background: rgba(0,0,0,0.6); color: #fff; padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.8rem; font-weight: 600; pointer-events: none; }  .dienst-fotos.single { grid-template-columns: 1fr; }
-  .dienst-fotos.vier { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
+  .dienst-fotos.single { grid-template-columns: 1fr; }
+  
 .foto-item { width: 100%; height: 260px; object-fit: cover; display: block; cursor: zoom-in; transition: transform 0.3s; }
-.dienst-fotos .foto-item:not(:first-child) { display: none; }  .dienst-fotos.vier .foto-item { height: 100px; }
+.dienst-fotos .foto-item:not(:first-child) { display: none; }  
   .foto-placeholder { width: 100%; height: 260px; display: flex; align-items: center; justify-content: center; font-size: 3rem; background: var(--gray); }
   .dienst-info { padding: 2rem 2.5rem; display: flex; flex-direction: column; justify-content: center; }
   .dienst-nummer { display: none; }
@@ -243,7 +243,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
     .nav-logo { font-size: 1.4rem; }
     .nav-cta { padding: 0.5rem 1rem; font-size: 0.78rem; }
     .dienst-rij { grid-template-columns: 1fr; }
-    .dienst-fotos { height: 200px; }
+    .dienst-fotos { min-height: 200px; }
     .over-inner { grid-template-columns: 1fr; }
     .over-right { height: 280px; }
     .cert-grid { grid-template-columns: 1fr; }
@@ -252,6 +252,38 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
     .contact-inner { grid-template-columns: 1fr; }
      .footer-inner { flex-direction: column; text-align: center; }
   }
+
+/* --- Foto fix: altijd volledige foto, ook als tekst hoger is --- */
+.dienst-fotos { min-height: 260px; }
+.dienst-fotos .foto-item:first-child { position: absolute; inset: 0; width: 100%; height: 100%; }
+@media (max-width: 768px) { .dienst-fotos { min-height: 220px; } }
+.meer-fotos-btn { position: absolute; bottom: 1rem; right: 1rem; z-index: 2; background: rgba(0,0,0,0.72); color: #fff; border: none; padding: 0.5rem 0.9rem; border-radius: 6px; font-size: 0.8rem; font-weight: 700; cursor: pointer; font-family: inherit; }
+.meer-fotos-btn:hover { background: var(--accent); }
+.dienst-acties { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem; }
+.dienst-info-btn { background: none; border: none; padding: 0; color: var(--black); font-size: 0.85rem; font-weight: 700; cursor: pointer; font-family: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.dienst-info-btn:hover { color: var(--accent); }
+.lb-counter { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); color: #fff; font-size: 0.9rem; font-weight: 600; }
+
+/* --- Dienst detail venster --- */
+.dm-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 9000; align-items: center; justify-content: center; padding: 1rem; }
+.dm-overlay.active { display: flex; }
+.dm-box { background: #fff; border-radius: 14px; max-width: 640px; width: 100%; max-height: 88vh; overflow-y: auto; padding: 2.2rem 2.4rem; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.dm-close { position: absolute; top: 0.8rem; right: 1.1rem; background: none; border: none; font-size: 2rem; line-height: 1; cursor: pointer; color: #666; }
+.dm-cat { font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); }
+.dm-box h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 2rem; text-transform: uppercase; color: var(--black); margin: 0.3rem 0 1rem; }
+.dm-box p { color: var(--muted); font-size: 0.97rem; line-height: 1.75; margin-bottom: 1rem; }
+.dm-box h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.05rem; text-transform: uppercase; color: var(--black); margin: 1.2rem 0 0.5rem; }
+.dm-box ul { list-style: none; padding: 0; margin: 0 0 1.2rem; }
+.dm-box li { position: relative; padding-left: 1.5rem; color: var(--muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 0.4rem; }
+.dm-box li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+.dm-price { display: inline-block; background: var(--accent-light); color: var(--accent-dark); font-weight: 700; padding: 0.4rem 0.9rem; border-radius: 6px; font-size: 0.9rem; margin-bottom: 1rem; }
+.dm-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.5rem; }
+.dm-cta { background: var(--accent); color: #fff; border: none; padding: 0.85rem 1.6rem; font-weight: 700; font-size: 0.9rem; border-radius: 8px; cursor: pointer; font-family: inherit; }
+.dm-cta:hover { background: var(--accent-dark); }
+.dm-wa { background: #fff; color: var(--black); border: 1px solid var(--border); padding: 0.85rem 1.4rem; font-weight: 700; font-size: 0.9rem; border-radius: 8px; text-decoration: none; }
+.dm-wa:hover { border-color: var(--accent); color: var(--accent); }
+@media (max-width: 600px) { .dm-box { padding: 1.8rem 1.4rem; } .dm-box h3 { font-size: 1.6rem; } }
+
 </style>
 </head>
 <body>
@@ -259,7 +291,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lightbox-close" onclick="closeLightbox()">×</button>
   <button onclick="event.stopPropagation(); lightboxNav(-1)" style="position:absolute; left:1rem; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.2); border:none; color:#fff; font-size:2rem; cursor:pointer; padding:0.5rem 1rem; border-radius:8px;">&#8249;</button>
-  <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
+  <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()"><div class="lb-counter" id="lb-counter"></div>
   <button onclick="event.stopPropagation(); lightboxNav(1)" style="position:absolute; right:1rem; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.2); border:none; color:#fff; font-size:2rem; cursor:pointer; padding:0.5rem 1rem; border-radius:8px;">&#8250;</button>
 </div>
 
@@ -701,6 +733,20 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
 </section>
 
 
+
+<div class="dm-overlay" id="dmOverlay" onclick="closeDienst()">
+  <div class="dm-box" onclick="event.stopPropagation()" role="dialog" aria-modal="true" aria-labelledby="dmTitle">
+    <button class="dm-close" onclick="closeDienst()" aria-label="Sluiten">×</button>
+    <span class="dm-cat" id="dmCat"></span>
+    <h3 id="dmTitle"></h3>
+    <div id="dmBody"></div>
+    <div class="dm-actions">
+      <button class="dm-cta" id="dmCta" onclick="dienstOfferte()">Gratis offerte aanvragen →</button>
+      <a class="dm-wa" href="https://wa.me/31685047832" target="_blank" rel="noopener">WhatsApp ons</a>
+    </div>
+  </div>
+</div>
+
 <script>
 function toggleMobileMenu() {
   document.getElementById('navMobileMenu').classList.toggle('active');
@@ -714,17 +760,28 @@ function toggleDienstenSub() {
  let lightboxImages = [];
 let lightboxIndex = 0;
 
-function openLightbox(src) {
-  lightboxImages = Array.from(document.querySelectorAll('.foto-item')).map(img => img.src);
-  lightboxIndex = lightboxImages.indexOf(src);
-  document.getElementById('lightbox-img').src = src;
+function openLightbox(src, group) {
+  if (!group) {
+    const t = window.event && window.event.target;
+    group = t && t.closest ? t.closest('.dienst-fotos') : null;
+  }
+  const imgs = group ? group.querySelectorAll('.foto-item') : document.querySelectorAll('.foto-item');
+  lightboxImages = Array.from(imgs).map(img => img.src);
+  lightboxIndex = Math.max(0, lightboxImages.indexOf(src));
+  showLightbox();
   document.getElementById('lightbox').classList.add('active');
   document.body.style.overflow = 'hidden';
 }
 
-function lightboxNav(dir) {
-  lightboxIndex = (lightboxIndex + dir + lightboxImages.length) % lightboxImages.length;
+function showLightbox() {
   document.getElementById('lightbox-img').src = lightboxImages[lightboxIndex];
+  document.getElementById('lb-counter').textContent = lightboxImages.length > 1 ? (lightboxIndex + 1) + ' / ' + lightboxImages.length : '';
+}
+
+function lightboxNav(dir) {
+  if (lightboxImages.length < 2) return;
+  lightboxIndex = (lightboxIndex + dir + lightboxImages.length) % lightboxImages.length;
+  showLightbox();
 }
 
 function closeLightbox() {
@@ -737,6 +794,85 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') lightboxNav(1);
   if (e.key === 'ArrowLeft') lightboxNav(-1);
 });
+const DIENSTEN = {"Groepenkast": {"cat": "Groepenkast", "key": "groepenkast", "intro": "De groepenkast (of meterkast) is het hart van uw elektrische installatie. Is hij verouderd, te klein of niet meer veilig? Dan vervangen, uitbreiden of keuren wij hem volgens NEN 1010, zodat u weer jaren vooruit kunt.", "points": ["Vervangen van oude kasten met porseleinen of smeltzekeringen", "Uitbreiden met extra groepen en aardlekschakelaars", "Veilig en volgens de laatste normen opgeleverd", "Duidelijk gelabeld, met schema en oplevering"], "extra": null, "price": null}, "Groepenkast vervangen": {"cat": "Groepenkast", "key": "groepenkast", "intro": "Een oude groepenkast met smeltzekeringen of zonder voldoende aardlekbeveiliging is niet meer van deze tijd. Wij vervangen uw kast door een nieuwe, veilige groepenkast conform NEN 1010.", "points": ["Nieuwe kast met aardlekschakelaars en automaten", "Alle groepen gecontroleerd, gemeten en gelabeld", "Ruimte voor toekomstige uitbreiding (bijv. laadpaal of warmtepomp)", "Meestal binnen één dag klaar, in overleg met de netbeheerder waar nodig"], "extra": "Ideaal bij een verbouwing, bij storingen die steeds terugkomen, of als uw huidige kast vol zit.", "price": null}, "Groepenkast uitbreiden": {"cat": "Groepenkast", "key": "groepenkast", "intro": "Zit uw groepenkast vol, of valt de stroom uit zodra u meerdere apparaten tegelijk gebruikt? Dan is uitbreiden vaak de oplossing. Wij plaatsen extra groepen, aardlekschakelaars of een tweede verdeler.", "points": ["Extra groepen voor bijv. inductiekookplaat, airco, warmtepomp of laadpaal", "Aardlekbeveiliging aangepast aan de huidige normen", "Controle van de bestaande installatie", "Nette afwerking en duidelijke groepenindeling"], "extra": null, "price": null}, "Extra groep aanleggen": {"cat": "Groepenkast", "key": "groepenkast", "intro": "Een zware verbruiker, zoals een kookplaat, boiler of airco, hoort op een eigen groep. Wij leggen een extra groep aan van groepenkast tot aansluitpunt.", "points": ["Kabel trekken van kast naar het gewenste punt", "Juiste kabeldikte en beveiliging voor het apparaat", "Aansluiten en testen", "Veilig en volgens NEN 1010"], "extra": null, "price": null}, "Perilex installatie": {"cat": "Aansluitingen", "key": "groepenkast", "intro": "Een perilex (krachtstroom-)aansluiting is nodig voor apparaten die veel vermogen vragen, zoals een elektrische kookplaat of oven, een boiler of een laadpaal. Wij leggen de groep aan en monteren de perilex-wandcontactdoos.", "points": ["Eigen groep in de groepenkast met de juiste beveiliging", "Zware kabel (3-fase of 2-fase) aangelegd naar de gewenste plek", "Montage van perilex-stopcontact of directe aansluiting", "Testen en opleveren volgens NEN 1010"], "extra": "Weet u niet zeker of uw meterkast en aansluiting geschikt zijn voor een perilex? Wij kijken dat gratis met u na.", "price": null}, "Stopcontact aansluiten": {"cat": "Schakelmateriaal", "key": "bedrading", "intro": "Extra stopcontacten nodig, of een oud exemplaar vervangen? Wij monteren en sluiten stopcontacten netjes en veilig aan, inbouw of opbouw, ook voor dubbele en spatwaterdichte varianten.", "points": ["Nieuwe stopcontacten of vervanging van oude", "Inbouw en opbouw, binnen en buiten", "Aardlekbeveiliging gecontroleerd", "Netjes afgewerkt en getest"], "extra": null, "price": null}, "Schakelaar aansluiten": {"cat": "Schakelmateriaal", "key": "bedrading", "intro": "Van een simpele lichtschakelaar tot wissel-, kruis- of dimschakelaars: wij sluiten ze correct aan en zorgen dat alles logisch en veilig werkt.", "points": ["Enkelpolige, wissel- en serieschakelaars", "Dimmers en bewegingsmelders", "Vervangen van oude of defecte schakelaars", "Ook passend bij uw bestaande afwerkingsserie"], "extra": null, "price": null}, "Buiten schakelmateriaal": {"cat": "Schakelmateriaal", "key": "bedrading", "intro": "Buiten heeft u spatwaterdicht materiaal nodig. Wij leggen buitenstopcontacten en schakelaars aan voor tuin, schuur, carport of gevel.", "points": ["Waterdichte stopcontacten (IP44 of hoger)", "Aparte, beveiligde groep met aardlekschakelaar", "Kabel door de gevel of ondergronds (in buis)", "Ook voor tuinverlichting, poort of vijver"], "extra": null, "price": null}, "UTP & coax aansluiten": {"cat": "Schakelmateriaal", "key": "bedrading", "intro": "Een goede internetverbinding begint met goede bedrading. Wij leggen UTP (netwerk) en coax aan en sluiten wandcontactdozen aan, zodat u overal stabiel internet en tv heeft.", "points": ["UTP-kabel (Cat6) naar elke kamer of werkplek", "Coax voor tv en internet via de kabel", "Netwerkaansluitingen en patchkast", "Testen van de verbinding"], "extra": null, "price": null}, "Binnenverlichting": {"cat": "Verlichting, domotica & beveiliging", "key": "bedrading", "intro": "Goede verlichting maakt een huis. Wij plaatsen en sluiten plafondlampen, inbouwspots, LED-strips en hanglampen aan, inclusief schakelaars en dimmers.", "points": ["Inbouwspots en LED-verlichting", "Hanglampen en wandlampen ophangen", "Dimbare verlichting", "Nieuwe lichtpunten aanleggen waar u ze wilt"], "extra": null, "price": null}, "Buitenverlichting": {"cat": "Verlichting, domotica & beveiliging", "key": "bedrading", "intro": "Buitenverlichting voor sfeer, veiligheid en zichtbaarheid. Wij installeren gevelverlichting, tuinspots en bewegingsmelders, veilig aangelegd en waterdicht aangesloten.", "points": ["Gevel-, tuin- en oprijlaanverlichting", "Bewegingsmelders en schemerschakelaar", "Waterdichte aansluitingen", "Kabel in buis en veilig beveiligd"], "extra": null, "price": null}, "Domotica": {"cat": "Verlichting, domotica & beveiliging", "key": "smart", "intro": "Bedien uw verlichting, verwarming en meer via uw telefoon of stem. Wij installeren slimme schakelaars en systemen en zorgen dat alles betrouwbaar samenwerkt.", "points": ["Slimme schakelaars, dimmers en sensoren", "Koppeling met uw telefoon en spraakassistent", "Scenes, zoals 'welkom thuis' of 'nachtstand'", "Uitbreidbaar en toekomstbestendig"], "extra": null, "price": null}, "Smart Home": {"cat": "Domotica", "key": "smart", "intro": "Slimme schakelaars, verlichting en automatisering die u via uw telefoon bedient. Maak uw woning klaar voor de toekomst: comfortabeler, zuiniger en veiliger.", "points": ["Slimme schakelaars en dimmers", "Bediening via app of spraak", "Tijdschema's en scenes", "Ook in bestaande woningen na te installeren"], "extra": null, "price": null}, "Camera-installatie": {"cat": "Verlichting, domotica & beveiliging", "key": "bedrading", "intro": "Beveilig uw woning of bedrijf met camera's. Wij plaatsen de camera's, leggen de bekabeling netjes weg en zorgen dat u live kunt meekijken op uw telefoon.", "points": ["Bedrade PoE-camera's voor een stabiel beeld", "Netjes weggewerkte kabels", "Opnameapparaat of cloudopslag", "Live kijken via de app"], "extra": null, "price": null}, "NEN 1010 / NEN 3140 keuring": {"cat": "Keuringen & storing", "key": "storing", "intro": "Wilt u zeker weten dat uw elektrische installatie veilig is? Wij keuren en meten uw installatie volgens NEN 1010 en NEN 3140 en geven u een duidelijk rapport.", "points": ["Meten en beoordelen van de hele installatie", "Rapport met eventuele aandachtspunten", "Handig bij verkoop, verhuur of verzekering", "Op verzoek direct herstel van gevonden gebreken"], "extra": null, "price": null}, "Installatie check": {"cat": "Keuringen & storing", "key": "storing", "intro": "Een snelle controle van uw installatie: is alles nog veilig en in orde? Wij kijken naar groepenkast, aarding, aardlekschakelaars en bedrading.", "points": ["Visuele controle en metingen", "Advies over wat nodig of aan te raden is", "Wij leggen alles helder en begrijpelijk uit", "Vrijblijvend en eerlijk advies"], "extra": null, "price": null}, "Storing & stroomuitval": {"cat": "Keuringen & storing", "key": "storing", "intro": "Stroomuitval, een kortsluiting of een groep die steeds uitvalt? Wij zoeken de oorzaak en lossen het op. Op afspraak snel geholpen.", "points": ["Opsporen van de oorzaak van storingen", "Herstellen van defecte kabels, schakelaars of apparatuur", "Vervangen van defecte aardlekschakelaars", "Eerlijk advies over wat wel en niet nodig is"], "extra": null, "price": null}, "Storing & reparatie": {"cat": "Storing & reparatie", "key": "storing", "intro": "Stroomuitval, kortsluitingen of defecte apparatuur: wij lossen het op. Op afspraak snel geholpen, met eerlijk advies.", "points": ["Opsporen en verhelpen van storingen", "Reparatie van stopcontacten, schakelaars en bedrading", "Vervangen van defecte aardlekschakelaars en automaten", "Bel of WhatsApp ons voor een snelle afspraak"], "extra": null, "price": null}, "Laadpaal installatie": {"cat": "Laadpalen", "key": "laadpaal", "intro": "Thuis laden is het voordeligst en het makkelijkst. Wij installeren uw laadpaal veilig, met een eigen groep en de juiste beveiliging, thuis of op uw bedrijfslocatie.", "points": ["Werkt met alle gangbare laadpalen (u koopt zelf, of wij adviseren)", "Eigen groep en juiste beveiliging in de groepenkast", "Kabel aangelegd naar de gewenste plek", "Getest en opgeleverd conform de geldende normen"], "extra": null, "price": null}, "Laadpaal": {"cat": "Laadpalen", "key": "laadpaal", "intro": "Thuis laden is het voordeligst en het makkelijkst. Wij installeren uw laadpaal veilig, met een eigen groep en de juiste beveiliging, thuis of op uw bedrijfslocatie.", "points": ["Werkt met alle gangbare laadpalen (u koopt zelf, of wij adviseren)", "Eigen groep en juiste beveiliging in de groepenkast", "Kabel aangelegd naar de gewenste plek", "Getest en opgeleverd conform de geldende normen"], "extra": null, "price": null}, "Bedrading aanleggen/vernieuwen": {"cat": "Bedrading & installatie", "key": "bedrading", "intro": "Verouderde of onveilige bedrading? Wij leggen nieuwe bedrading aan of vernieuwen bestaande leidingen, van één groep tot een complete woning.", "points": ["Nieuwe leidingen en wandcontactdozen", "Vervangen van oude bedrading (bijv. stofdraad)", "Inbouw of opbouw, afhankelijk van uw wensen", "Volgens NEN 1010, netjes opgeleverd"], "extra": null, "price": null}, "Bedrading & installatie": {"cat": "Bedrading & installatie", "key": "bedrading", "intro": "Verouderde of onveilige bedrading? Wij leggen nieuwe bedrading aan of vernieuwen bestaande leidingen, van één groep tot een complete woning.", "points": ["Nieuwe leidingen en wandcontactdozen", "Vervangen van oude bedrading (bijv. stofdraad)", "Inbouw of opbouw, afhankelijk van uw wensen", "Volgens NEN 1010, netjes opgeleverd"], "extra": null, "price": null}, "Nieuwbouw & verbouwing": {"cat": "Nieuwbouw & renovatie", "key": "nieuwbouw", "intro": "Wij verzorgen complete elektrische installaties voor nieuwbouwwoningen, verbouwingen en renovaties. Van het eerste leidingwerk tot de oplevering.", "points": ["Nieuwbouwwoningen: complete installatie van A tot Z", "Verbouwing en uitbouw: aanpassen en uitbreiden", "Samenwerking met aannemers en bouwteam"], "extra": null, "price": null}, "Nieuwbouw, verbouw & renovatie": {"cat": "Nieuwbouw & renovatie", "key": "nieuwbouw", "intro": "Wij verzorgen complete elektrische installaties voor nieuwbouwwoningen, verbouwingen en renovaties. Van het eerste leidingwerk tot de oplevering.", "points": ["Nieuwbouwwoningen: complete installatie van A tot Z", "Verbouwing en uitbouw: aanpassen en uitbreiden", "Samenwerking met aannemers en bouwteam"], "extra": null, "price": null}};
+const DIENST_SELECT = {"groepenkast": "Groepenkast", "laadpaal": "Laadpaal", "bedrading": "Bedrading & installatie", "smart": "Smart Home", "storing": "Storing & reparatie", "nieuwbouw": "Nieuwbouw, verbouw & renovatie"};
+
+let dienstKey = '';
+function normTxt(t) { return (t || '').replace(/\s+/g, ' ').trim(); }
+
+function openDienst(title) {
+  const d = DIENSTEN[title];
+  if (!d) return false;
+  dienstKey = d.key;
+  document.getElementById('dmCat').textContent = d.cat;
+  document.getElementById('dmTitle').textContent = title;
+  let html = '';
+  if (d.price) html += '<span class="dm-price">' + d.price + '</span>';
+  html += '<p>' + d.intro + '</p><h4>Wat wij doen</h4><ul>' + d.points.map(x => '<li>' + x + '</li>').join('') + '</ul>';
+  if (d.extra) html += '<p>' + d.extra + '</p>';
+  document.getElementById('dmBody').innerHTML = html;
+  document.getElementById('dmOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  return true;
+}
+function closeDienst() {
+  document.getElementById('dmOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function dienstOfferte() {
+  const sel = document.querySelector('select[name="dienst"]');
+  const val = DIENST_SELECT[dienstKey];
+  if (sel && val) { for (const o of sel.options) { if (o.text === val) { sel.value = o.value || o.text; break; } } }
+  closeDienst();
+  const t = document.getElementById('offerte');
+  if (t) t.scrollIntoView({ behavior: 'smooth' });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Alle dienst-links (menu + tags) openen eerst de uitleg
+  document.querySelectorAll('a[href="#offerte"]').forEach(a => {
+    const title = normTxt(a.textContent);
+    if (DIENSTEN[title] && (a.closest('.mega-menu') || a.closest('.mobile-submenu') || a.closest('.tag-wrap'))) {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        if (typeof toggleMobileMenu === 'function' && a.closest('.nav-mobile-menu')) toggleMobileMenu();
+        openDienst(title);
+      });
+    }
+  });
+  // Hoofdkaarten: extra 'Meer informatie'-knop
+  document.querySelectorAll('.dienst-rij').forEach(rij => {
+    const h = rij.querySelector('.dienst-info h3');
+    const link = rij.querySelector('.dienst-link');
+    if (h && link && DIENSTEN[normTxt(h.textContent)]) {
+      const b = document.createElement('button');
+      b.className = 'dienst-info-btn';
+      b.type = 'button';
+      b.textContent = 'Meer informatie';
+      b.addEventListener('click', () => openDienst(normTxt(h.textContent)));
+      const wrap = document.createElement('div');
+      wrap.className = 'dienst-acties';
+      link.parentNode.insertBefore(wrap, link);
+      wrap.appendChild(b);
+      wrap.appendChild(link);
+    }
+    // Echte 'Meer foto's'-knop als er meerdere foto's zijn
+    const fotos = rij.querySelector('.dienst-fotos');
+    if (fotos) {
+      const imgs = fotos.querySelectorAll('.foto-item');
+      if (imgs.length > 1) {
+        const b = document.createElement('button');
+        b.className = 'meer-fotos-btn';
+        b.type = 'button';
+        b.textContent = "📷 Meer foto's (" + imgs.length + ")";
+        b.addEventListener('click', e => { e.stopPropagation(); openLightbox(imgs[0].src, fotos); });
+        fotos.appendChild(b);
+      }
+    }
+  });
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDienst(); });
+
 async function verstuurOfferte() {
   const naam = document.getElementById('naam').value.trim();
   const tel = document.getElementById('tel').value.trim();
