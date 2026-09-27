@@ -222,7 +222,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
   /* CERTIFICATEN */
   .cert-section { padding: 5rem 2.5rem; background: #fff; }
   .cert-inner { max-width: 1100px; margin: 0 auto; }
-  .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+  .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
   .cert-card { border: 1px solid var(--border); padding: 2rem 1.5rem; display: flex; align-items: flex-start; gap: 1.25rem; transition: border-color 0.2s; }
   .cert-card:hover { border-color: var(--accent); }
   .cert-icon { width: 48px; height: 48px; background: var(--black); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
@@ -468,7 +468,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
     <div class="hero-stats">
       <div class="hero-stat"><div class="hero-stat-num">Op afspraak</div><div class="hero-stat-label">Flexibel inplannen</div></div>
       <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">Gecertificeerd vakman</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">3x</div><div class="hero-stat-label">VCA · NEN 1010 · NEN 3140</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">Certificaten</div><div class="hero-stat-label">VCA · NEN 1010 · NEN 3140 · GPI</div></div>
     </div>
   </div>
 </section>
@@ -480,6 +480,8 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
     <span class="badge-item">✓ NEN 1010</span>
     <span class="badge-sep">·</span>
     <span class="badge-item">✓ NEN 3140</span>
+    <span class="badge-sep">·</span>
+    <span class="badge-item">✓ GPI</span>
     <span class="badge-sep">·</span>
     <span class="badge-item">✓ Op afspraak</span>
     <span class="badge-sep">·</span>
@@ -499,7 +501,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
 
     <div id="wg-lijst" style="display:none;margin-top:1.5rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0.75rem;">
       <div style="background:#1a1a1a;border:1px solid #333;border-radius:4px;padding:0.75rem 1.1rem;">
-        <p style="color:#00B37A;font-family:'Barlow',sans-serif;font-size:0.75rem;font-weight:600;text-transform:uppercase;margin:0 0 0.2rem;">Rotterdam regio</p>
+        <p style="color:#00B37A;font-family:'Barlow',sans-serif;font-size:0.75rem;font-weight:600;text-transform:uppercase;margin:0 0 0.2rem;">Zuid-Holland</p>
         <p style="color:#ccc;font-family:'Barlow',sans-serif;font-size:0.9rem;margin:0;">Rotterdam, Dordrecht, Spijkenisse, Barendrecht en omgeving</p>
       </div>
       <div style="background:#1a1a1a;border:1px solid #333;border-radius:4px;padding:0.75rem 1.1rem;">
@@ -650,6 +652,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
       <div class="cert-card"><div class="cert-icon">🛡️</div><div><h3>VCA Gecertificeerd</h3><p>Veiligheid, Gezondheid en Milieu — wij voldoen aan de hoogste veiligheidsnormen.</p></div></div>
       <div class="cert-card"><div class="cert-icon">⚡</div><div><h3>NEN 1010</h3><p>Veiligheidsbepalingen voor laagspanningsinstallaties. Al onze installaties voldoen aan deze norm.</p></div></div>
       <div class="cert-card"><div class="cert-icon">✅</div><div><h3>NEN 3140</h3><p>Bedrijfsvoering van elektrische installaties conform de geldende Nederlandse norm.</p></div></div>
+      <div class="cert-card"><div class="cert-icon">🦺</div><div><h3>GPI</h3><p>Gecertificeerd voor toegang tot bouwplaatsen die dit vereisen.</p></div></div>
     </div>
   </div>
 </section>
