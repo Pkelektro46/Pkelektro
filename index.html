@@ -71,6 +71,10 @@ gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personali
     box-shadow: 0 16px 40px rgba(0,0,0,0.14); padding: 1.75rem 2.25rem; gap: 2.5rem; z-index: 250;
   }
   .nav-dropdown:hover .mega-menu { display: flex; }
+  .nav-dropdown > a { display: inline-flex; align-items: center; gap: 0.4rem; }
+  .nav-dropdown > a::after { content: ''; width: 0.4rem; height: 0.4rem; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform 0.2s; }
+  .nav-dropdown:hover > a { color: var(--accent); }
+  .nav-dropdown:hover > a::after { transform: translateY(1px) rotate(-135deg); }
   .mega-col { display: flex; flex-direction: column; min-width: 165px; }
   .mega-col h5 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent); margin: 1.1rem 0 0.5rem; }
   .mega-col h5:first-child { margin-top: 0; }
@@ -410,21 +414,28 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
           <h5>Zeeland</h5>
           <a href="goes.html">Goes</a>
           <a href="middelburg.html">Middelburg</a>
-          <a href="tholen.html">Tholen</a>
-          <a href="krabbendijke.html">Krabbendijke</a>
+          <a href="vlissingen.html">Vlissingen</a>
+          <a href="terneuzen.html">Terneuzen</a>
+          <a href="zierikzee.html">Zierikzee</a>
+          <a href="zeeland.html" class="mega-see-all">Alle plaatsen &rarr;</a>
         </div>
         <div class="mega-col">
           <h5>Noord-Brabant</h5>
           <a href="breda.html">Breda</a>
           <a href="bergen-op-zoom.html">Bergen op Zoom</a>
           <a href="roosendaal.html">Roosendaal</a>
+          <a href="tilburg.html">Tilburg</a>
+          <a href="etten-leur.html">Etten-Leur</a>
+          <a href="noord-brabant.html" class="mega-see-all">Alle plaatsen &rarr;</a>
         </div>
         <div class="mega-col">
           <h5>Zuid-Holland</h5>
           <a href="rotterdam.html">Rotterdam</a>
           <a href="dordrecht.html">Dordrecht</a>
           <a href="spijkenisse.html">Spijkenisse</a>
-          <a href="barendrecht.html">Barendrecht</a>
+          <a href="zwijndrecht.html">Zwijndrecht</a>
+          <a href="ridderkerk.html">Ridderkerk</a>
+          <a href="zuid-holland.html" class="mega-see-all">Alle plaatsen &rarr;</a>
         </div>
       </div>
     </div>
@@ -510,21 +521,28 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
         <h5>Zeeland</h5>
         <a href="goes.html">Goes</a>
         <a href="middelburg.html">Middelburg</a>
-        <a href="tholen.html">Tholen</a>
-        <a href="krabbendijke.html">Krabbendijke</a>
+        <a href="vlissingen.html">Vlissingen</a>
+        <a href="terneuzen.html">Terneuzen</a>
+        <a href="zierikzee.html">Zierikzee</a>
+        <a href="zeeland.html" class="mobile-see-all">Alle plaatsen &rarr;</a>
       </div>
       <div class="mobile-subcat">
         <h5>Noord-Brabant</h5>
         <a href="breda.html">Breda</a>
         <a href="bergen-op-zoom.html">Bergen op Zoom</a>
         <a href="roosendaal.html">Roosendaal</a>
+        <a href="tilburg.html">Tilburg</a>
+        <a href="etten-leur.html">Etten-Leur</a>
+        <a href="noord-brabant.html" class="mobile-see-all">Alle plaatsen &rarr;</a>
       </div>
       <div class="mobile-subcat">
         <h5>Zuid-Holland</h5>
         <a href="rotterdam.html">Rotterdam</a>
         <a href="dordrecht.html">Dordrecht</a>
         <a href="spijkenisse.html">Spijkenisse</a>
-        <a href="barendrecht.html">Barendrecht</a>
+        <a href="zwijndrecht.html">Zwijndrecht</a>
+        <a href="ridderkerk.html">Ridderkerk</a>
+        <a href="zuid-holland.html" class="mobile-see-all">Alle plaatsen &rarr;</a>
       </div>
     </div>
   </div>
