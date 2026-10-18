@@ -250,18 +250,18 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
   .success-msg { display: none; background: var(--accent-light); color: var(--accent-dark); border: 1px solid var(--accent); padding: 1rem; text-align: center; font-weight: 600; margin-top: 1rem; }
 
   /* CONTACT */
-  .contact-strip { background: var(--accent); padding: 4rem 2.5rem; }
+  .contact-strip { background: #141413; border-top: 3px solid var(--accent); padding: 4rem 2.5rem; }
   .contact-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
   .contact-left h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 2.2rem; text-transform: uppercase; color: #fff; margin-bottom: 0.5rem; }
-  .contact-left p { color: rgba(255,255,255,0.8); }
+  .contact-left p { color: #aaa; }
   .contact-right { display: flex; flex-direction: column; gap: 0.75rem; }
-  .contact-item { display: flex; align-items: center; gap: 0.75rem; font-weight: 600; color: #fff; text-decoration: none; font-size: 0.95rem; background: rgba(0,0,0,0.12); padding: 0.85rem 1.25rem; transition: background 0.2s; }
-  .contact-item:hover { background: rgba(0,0,0,0.22); }
-.pk-uren { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.45); padding: 1rem 1.25rem; margin-top: 1.5rem; }
-.pk-uren-kop { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
-.pk-uren-status { background: #fff; color: var(--accent); padding: 0.2rem 0.6rem; font-size: 0.7rem; letter-spacing: 0; text-transform: none; }
-.pk-uren-rij { display: flex; justify-content: space-between; color: #fff; font-size: 0.95rem; padding: 0.3rem 0; }
-.pk-uren-rij + .pk-uren-rij { border-top: 1px solid rgba(255,255,255,0.15); }
+  .contact-item { display: flex; align-items: center; gap: 0.75rem; font-weight: 600; color: #fff; text-decoration: none; font-size: 0.95rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); padding: 0.85rem 1.25rem; transition: background 0.2s, border-color 0.2s; }
+  .contact-item:hover { background: rgba(255,255,255,0.1); border-color: var(--accent); }
+.pk-uren { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); padding: 1rem 1.25rem; margin-top: 1.5rem; }
+.pk-uren-kop { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; color: var(--accent); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.pk-uren-status { background: rgba(0,179,122,0.15); color: #5DCAA5; padding: 0.2rem 0.6rem; font-size: 0.7rem; letter-spacing: 0; text-transform: none; }
+.pk-uren-rij { display: flex; justify-content: space-between; color: #eee; font-size: 0.95rem; padding: 0.3rem 0; }
+.pk-uren-rij + .pk-uren-rij { border-top: 1px solid rgba(255,255,255,0.08); }
 
 
   .wa-float { position: fixed; bottom: 2rem; right: 2rem; background: #25D366; color: #fff; width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,0.45); z-index: 999; transition: transform 0.2s; }
@@ -547,7 +547,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
       <a href="#diensten" class="btn-ghost">Bekijk diensten</a>
     </div>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">Op afspraak</div><div class="hero-stat-label">Flexibel inplannen</div></div>
+      <a class="hero-stat" href="tel:+31685047832" style="text-decoration:none"><div class="hero-stat-num">Afspraak of spoed</div><div class="hero-stat-label">Bel direct · elke dag 08:00 – 18:00</div></a>
       <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">Gecertificeerd vakman</div></div>
       <div class="hero-stat"><div class="hero-stat-num">Certificaten</div><div class="hero-stat-label">VCA · NEN 1010 · NEN 3140 · GPI</div></div>
     </div>
@@ -564,7 +564,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
     <span class="badge-sep">·</span>
     <span class="badge-item">✓ GPI</span>
     <span class="badge-sep">·</span>
-    <span class="badge-item">✓ Op afspraak</span>
+    <span class="badge-item">✓ Snel geholpen</span>
     <span class="badge-sep">·</span>
     <span class="badge-item">✓ Gratis offerte</span>
   </div>
@@ -779,7 +779,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
 
 <section id="contact" class="contact-strip">
   <div class="contact-inner">
-    <div class="contact-left"><h2>Direct contact?</h2><p>Bel, app of mail ons — wij staan altijd klaar om u te helpen.</p>
+    <div class="contact-left"><h2>Direct <span style="color:var(--accent)">contact?</span></h2><p>Bel, app of mail ons — wij staan altijd klaar om u te helpen.</p>
       <div class="pk-uren">
         <div class="pk-uren-kop"><span>Openingstijden</span><span class="pk-uren-status" id="pkUrenStatus">● Nu bereikbaar</span></div>
         <div class="pk-uren-rij"><span>Maandag t/m vrijdag</span><span>08:00 – 18:00</span></div>
