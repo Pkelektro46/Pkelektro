@@ -29,120 +29,75 @@ gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personali
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Elektricien Zwijndrecht | PK Elektro</title>
 <meta name="description" content="Elektricien in Zwijndrecht nodig? PK Elektro verzorgt meterkasten, groepenkasten, laadpalen en storingen in Zwijndrecht en omgeving. Gecertificeerd, snel en zonder gedoe. Gratis offerte.">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --accent: #00B37A; --accent-dark: #008F60; --accent-light: #E6F7F2;
-    --black: #111111; --dark: #1a1a1a; --gray: #f7f7f5; --border: #e8e8e4; --muted: #666;
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Barlow', sans-serif; color: var(--black); background: #fff; }
-
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-    background: #fff; border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0.2 5rem; height: 64px; padding-left: 2rem; padding-right: 2rem;
-  }
-  .nav-logo { font-weight: 700; font-size: 1.2rem; color: var(--black); text-decoration: none; }
-  .nav-logo span { color: var(--accent); }
-  .nav-links { display: flex; gap: 1.5rem; }
-  .nav-links a { color: var(--black); text-decoration: none; font-weight: 500; font-size: 0.95rem; }
-  .nav-cta { background: var(--accent); color: #fff; padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
-  @media (max-width: 768px) { .nav-links { display: none; } }
-
-  .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; background: var(--accent); color: #fff; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; text-decoration: none; box-shadow: 0 4px 14px rgba(0,0,0,0.2); z-index: 150; }
-
-  .hero { position: relative; padding: 9rem 2rem 4rem; background: var(--black); color: #fff; text-align: left; }
-  .hero-content { max-width: 700px; }
-  .hero-content h1 { font-size: 2.4rem; line-height: 1.15; margin-bottom: 1rem; }
-  .hero-content h1 span { color: var(--accent); }
-  .hero-slogan { color: #ccc; font-size: 1.1rem; margin-bottom: 2rem; max-width: 550px; }
-  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary { background: var(--accent); color: #fff; padding: 0.9rem 1.6rem; border-radius: 6px; text-decoration: none; font-weight: 600; }
-  .btn-whatsapp { background: #25D366; color: #fff; padding: 0.9rem 1.6rem; border-radius: 6px; text-decoration: none; font-weight: 600; }
-  .btn-ghost { border: 1px solid #555; color: #fff; padding: 0.9rem 1.6rem; border-radius: 6px; text-decoration: none; font-weight: 600; }
-
-  section { padding: 4rem 2rem; max-width: 900px; margin: 0 auto; }
-  .eyebrow { color: var(--accent); font-weight: 700; letter-spacing: 0.02em; font-size: 0.85rem; margin-bottom: 0.5rem; }
-  h2 { font-size: 1.8rem; margin-bottom: 1.5rem; }
-  p.lead { color: var(--muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1rem; max-width: 680px; }
-
-  .diensten-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
-  .dienst-card { background: var(--gray); border: 1px solid var(--border); border-radius: 10px; padding: 1.4rem; }
-  .dienst-card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
-  .dienst-card p { color: var(--muted); font-size: 0.92rem; line-height: 1.5; }
-
-  .omgeving-list { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
-  .omgeving-list span { background: var(--accent-light); color: var(--accent-dark); padding: 0.4rem 0.9rem; border-radius: 20px; font-size: 0.9rem; font-weight: 500; }
-
-  .cta-strip { background: var(--accent); color: #fff; text-align: center; padding: 3rem 2rem; }
-  .cta-strip h2 { color: #fff; }
-  .cta-strip .btn-primary { background: #fff; color: var(--accent-dark); display: inline-block; margin-top: 1rem; }
-
-  footer { background: var(--black); color: #fff; padding: 2rem; text-align: center; }
-  .footer-inner { max-width: 900px; margin: 0 auto; }
-  .footer-logo { font-weight: 700; margin-bottom: 0.5rem; }
-  .footer-logo span { color: var(--accent); }
-  .footer-info { color: #999; font-size: 0.85rem; }
-</style>
+<link rel="preconnect" href="https://fonts.bunny.net"><link href="https://fonts.bunny.net/css?family=barlow:400,500,600,700|barlow-condensed:700,800,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pk-style.css">
 </head>
 <body>
-
 <nav>
-  <a href="index.html" class="nav-logo">⚡ PK <span>ELEKTRO</span></a>
+  <button class="nav-hamburger" onclick="pkMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <a href="index.html" class="nav-logo" aria-label="PK Elektro home"><img src="pk-elektro-logo.png" alt="PK Elektro – elektricien" class="nav-logo-img" width="53" height="46"></a>
   <div class="nav-links">
-    <a href="index.html#diensten">Diensten</a>
+    <div class="nav-dropdown"><a href="index.html#diensten">Diensten</a><div class="mega-menu"><div class="mega-col"><h5>Groepenkast</h5><a href="groepenkast-vervangen.html">Groepenkast vervangen</a><a href="groepenkast-uitbreiden.html">Groepenkast uitbreiden</a><a href="extra-groep-aanleggen.html">Extra groep aanleggen</a><h5>Aansluitingen</h5><a href="perilex-installatie.html">Perilex installatie</a><a href="krachtgroep-werkschakelaar.html">Krachtgroep &amp; werkschakelaar</a><a href="groep-tuin-terras.html">Groep naar tuin of terras</a></div><div class="mega-col"><h5>Schakelmateriaal</h5><a href="stopcontact-aansluiten.html">Stopcontact aansluiten</a><a href="schakelaar-aansluiten.html">Schakelaar aansluiten</a><a href="buiten-schakelmateriaal.html">Buiten schakelmateriaal</a><a href="utp-coax-aansluiten.html">UTP &amp; coax aansluiten</a><h5>Duurzaam</h5><a href="laadpaal-installatie.html">Laadpaal installatie</a><a href="thuisbatterij.html">Thuisbatterij</a><h5>Verwarming &amp; koeling</h5><a href="airco-installatie.html">Airco installatie</a><a href="terrasheater-ophangen.html">Terrasheater ophangen</a><a href="infraroodpanelen.html">Infraroodpanelen</a></div><div class="mega-col"><h5>Verlichting, domotica &amp; beveiliging</h5><a href="binnenverlichting.html">Binnenverlichting</a><a href="buitenverlichting.html">Buitenverlichting</a><a href="domotica.html">Domotica</a><a href="camera-installatie.html">Camera installatie</a><h5>Bedrading &amp; installatie</h5><a href="bedrading-aanleggen.html">Bedrading aanleggen/vernieuwen</a></div><div class="mega-col"><h5>Keuringen &amp; storing</h5><a href="nen-1010-keuring.html">NEN 1010 keuring</a><a href="nen-3140-keuring.html">NEN 3140 keuring</a><a href="installatie-check.html">Installatie check</a><a href="storing-stroomuitval.html">Storing &amp; stroomuitval</a><a href="scope-keuring.html">Scope keuring</a><h5>Nieuwbouw &amp; renovatie</h5><a href="nieuwbouw-verbouwing.html">Nieuwbouw &amp; verbouwing</a><a href="elektra-renovatie.html">Elektra renovatie</a></div></div></div>
+    <div class="nav-dropdown"><a href="#" onclick="return false">Locaties</a><div class="mega-menu"><div class="mega-col"><h5>Zeeland</h5><a href="goes.html">Goes</a><a href="middelburg.html">Middelburg</a><a href="vlissingen.html">Vlissingen</a><a href="terneuzen.html">Terneuzen</a><a href="zierikzee.html">Zierikzee</a><a href="zeeland.html" class="mega-see-all">Alle plaatsen &rarr;</a></div><div class="mega-col"><h5>Noord-Brabant</h5><a href="breda.html">Breda</a><a href="roosendaal.html">Roosendaal</a><a href="bergen-op-zoom.html">Bergen op Zoom</a><a href="steenbergen.html">Steenbergen</a><a href="woensdrecht.html">Woensdrecht</a><a href="noord-brabant.html" class="mega-see-all">Alle plaatsen &rarr;</a></div><div class="mega-col"><h5>Zuid-Holland</h5><a href="rotterdam.html">Rotterdam</a><a href="dordrecht.html">Dordrecht</a><a href="zwijndrecht.html">Zwijndrecht</a><a href="ridderkerk.html">Ridderkerk</a><a href="barendrecht.html">Barendrecht</a><a href="zuid-holland.html" class="mega-see-all">Alle plaatsen &rarr;</a></div></div></div>
     <a href="index.html#over">Over ons</a>
     <a href="index.html#certificaten">Certificaten</a>
-    <a href="index.html#offerte">Offerte</a>
+    <a href="blog.html">Blog</a>
     <a href="index.html#contact">Contact</a>
   </div>
-  <a class="nav-cta" href="index.html#offerte">Gratis offerte</a>
+  <div class="nav-right"><a class="nav-tel" href="tel:+31685047832">📞 06 85 04 78 32</a><a class="nav-cta" href="#aanvraag">Gratis offerte</a></div>
 </nav>
+<div class="m-menu" id="pkMobile">
+  <a href="tel:+31685047832">📞 Bel direct: 06 85 04 78 32</a>
+  <details><summary>Diensten</summary><div class="m-sub"><h5>Groepenkast</h5><a href="groepenkast-vervangen.html">Groepenkast vervangen</a><a href="groepenkast-uitbreiden.html">Groepenkast uitbreiden</a><a href="extra-groep-aanleggen.html">Extra groep aanleggen</a><h5>Aansluitingen</h5><a href="perilex-installatie.html">Perilex installatie</a><a href="krachtgroep-werkschakelaar.html">Krachtgroep &amp; werkschakelaar</a><a href="groep-tuin-terras.html">Groep naar tuin of terras</a><h5>Schakelmateriaal</h5><a href="stopcontact-aansluiten.html">Stopcontact aansluiten</a><a href="schakelaar-aansluiten.html">Schakelaar aansluiten</a><a href="buiten-schakelmateriaal.html">Buiten schakelmateriaal</a><a href="utp-coax-aansluiten.html">UTP &amp; coax aansluiten</a><h5>Duurzaam</h5><a href="laadpaal-installatie.html">Laadpaal installatie</a><a href="thuisbatterij.html">Thuisbatterij</a><h5>Verwarming &amp; koeling</h5><a href="airco-installatie.html">Airco installatie</a><a href="terrasheater-ophangen.html">Terrasheater ophangen</a><a href="infraroodpanelen.html">Infraroodpanelen</a><h5>Verlichting, domotica &amp; beveiliging</h5><a href="binnenverlichting.html">Binnenverlichting</a><a href="buitenverlichting.html">Buitenverlichting</a><a href="domotica.html">Domotica</a><a href="camera-installatie.html">Camera installatie</a><h5>Bedrading &amp; installatie</h5><a href="bedrading-aanleggen.html">Bedrading aanleggen/vernieuwen</a><h5>Keuringen &amp; storing</h5><a href="nen-1010-keuring.html">NEN 1010 keuring</a><a href="nen-3140-keuring.html">NEN 3140 keuring</a><a href="installatie-check.html">Installatie check</a><a href="storing-stroomuitval.html">Storing &amp; stroomuitval</a><a href="scope-keuring.html">Scope keuring</a><h5>Nieuwbouw &amp; renovatie</h5><a href="nieuwbouw-verbouwing.html">Nieuwbouw &amp; verbouwing</a><a href="elektra-renovatie.html">Elektra renovatie</a></div></details>
+  <details><summary>Locaties</summary><div class="m-sub"><h5>Zeeland</h5><a href="zeeland.html">Heel Zeeland</a><a href="goes.html">Goes</a><a href="middelburg.html">Middelburg</a><a href="vlissingen.html">Vlissingen</a><a href="terneuzen.html">Terneuzen</a><a href="zierikzee.html">Zierikzee</a><h5>Noord-Brabant</h5><a href="noord-brabant.html">Heel Noord-Brabant</a><a href="breda.html">Breda</a><a href="roosendaal.html">Roosendaal</a><a href="bergen-op-zoom.html">Bergen op Zoom</a><a href="steenbergen.html">Steenbergen</a><a href="woensdrecht.html">Woensdrecht</a><h5>Zuid-Holland</h5><a href="zuid-holland.html">Heel Zuid-Holland</a><a href="rotterdam.html">Rotterdam</a><a href="dordrecht.html">Dordrecht</a><a href="zwijndrecht.html">Zwijndrecht</a><a href="ridderkerk.html">Ridderkerk</a><a href="barendrecht.html">Barendrecht</a></div></details>
+  <a href="index.html#over">Over ons</a>
+  <a href="blog.html">Blog</a>
+  <a href="#aanvraag" onclick="pkMenu()">Gratis offerte</a>
+  <a href="index.html#contact">Contact</a>
+</div>
 
-<section class="hero">
+<header class="page-hero"><div class="page-hero-bg" style="background-image:url('nieuwbouw-bedrijfswagen_1.jpg')"></div>
   <div class="hero-content">
     <h1>Elektricien <span>Zwijndrecht</span></h1>
     <p class="hero-slogan">Van meterkast tot laadpaal — vakkundig, veilig en zonder gedoe. Ook voor spoed en storingen in Zwijndrecht en omgeving.</p>
     <div class="hero-btns">
-      <a href="index.html#offerte" class="btn-primary">Gratis offerte aanvragen</a>
+      <a href="#aanvraag" class="btn-primary">Gratis offerte aanvragen</a>
       <a href="https://wa.me/31685047832" class="btn-whatsapp" target="_blank">💬 WhatsApp</a>
     </div>
   </div>
-</section>
+</header>
 
-<section>
+<section><div class="wrap">
   <div class="eyebrow">Elektricien in de regio</div>
   <h2>Uw elektricien in Zwijndrecht</h2>
   <p class="lead">PK Elektro is actief in Zwijndrecht en de directe omgeving. Of het nu gaat om een verouderde meterkast, een laadpaal bij uw woning, of een storing die snel verholpen moet worden — wij komen langs op afspraak en werken volgens NEN 1010 en NEN 3140.</p>
   <p class="lead">In Zwijndrecht en de Drechtsteden werken wij aan nieuwbouw en bestaande woningen, met heldere afspraken vooraf.</p>
-</section>
+</div></section>
 
-<section>
+<section><div class="wrap">
   <div class="eyebrow">Onze diensten</div>
   <h2>Wat wij doen in Zwijndrecht</h2>
   <div class="diensten-grid">
     <div class="dienst-card">
       <h3>Meterkast &amp; groepenkast</h3>
-      <p>Vervangen of uitbreiden van verouderde meterkasten en groepenkasten, veilig en volgens de laatste normen.</p>
+      <p>Vervangen of uitbreiden van verouderde meterkasten en groepenkasten, veilig en volgens de laatste normen.</p><a class="card-link" href="groepenkast-vervangen.html">Meer info →</a>
     </div>
     <div class="dienst-card">
       <h3>Laadpaal installatie</h3>
-      <p>Laadpaal thuis of bij uw bedrijf aansluiten, inclusief juiste beveiliging (type B aardlekautomaat).</p>
+      <p>Laadpaal thuis of bij uw bedrijf aansluiten, inclusief juiste beveiliging (type B aardlekautomaat).</p><a class="card-link" href="laadpaal-installatie.html">Meer info →</a>
     </div>
     <div class="dienst-card">
       <h3>Storingen &amp; reparaties</h3>
-      <p>Snel ter plaatse bij kortsluiting, uitval of andere elektrische storingen.</p>
+      <p>Snel ter plaatse bij kortsluiting, uitval of andere elektrische storingen.</p><a class="card-link" href="storing-stroomuitval.html">Meer info →</a>
     </div>
     <div class="dienst-card">
       <h3>NEN 1010 / NEN 3140 keuringen</h3>
-      <p>Inspectie en keuring van uw elektrische installatie, met duidelijk rapport.</p>
+      <p>Inspectie en keuring van uw elektrische installatie, met duidelijk rapport.</p><a class="card-link" href="nen-1010-keuring.html">Meer info →</a>
     </div>
   </div>
-</section>
+</div></section>
 
-<section>
+<section><div class="wrap">
   <div class="eyebrow">Werkgebied</div>
   <h2>Ook actief rondom Zwijndrecht</h2>
   <p class="lead">Naast Zwijndrecht zelf komen wij ook graag langs in de omliggende kernen:</p>
@@ -152,9 +107,9 @@ gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personali
     <span>Dordrecht</span>
     <span>Ridderkerk</span>
   </div>
-</section>
+</div></section>
 
-<section>
+<section><div class="wrap">
   <div class="eyebrow">Waarom PK Elektro</div>
   <h2>Vakwerk met zekerheid</h2>
   <div class="diensten-grid">
@@ -162,22 +117,52 @@ gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personali
     <div class="dienst-card"><h3>Duidelijke afspraken</h3><p>Vooraf weten waar u aan toe bent, zonder verrassingen achteraf.</p></div>
     <div class="dienst-card"><h3>Snel bereikbaar</h3><p>Bel of app ons direct voor een afspraak of spoedklus.</p></div>
   </div>
-</section>
+</div></section>
 
-<section class="cta-strip" style="max-width: none; margin: 0;">
-  <h2>Elektricien nodig in Zwijndrecht?</h2>
-  <p style="max-width: 500px; margin: 0 auto; opacity: 0.95;">Vraag vrijblijvend een offerte aan of stuur ons een WhatsApp-bericht.</p>
-  <a href="index.html#offerte" class="btn-primary">Gratis offerte aanvragen</a>
-</section>
-
-<a href="https://wa.me/31685047832" class="wa-float" target="_blank">💬</a>
-
+<section class="alt" id="werkgebied"><div class="wrap">
+  <span class="eyebrow">Werkgebied</span>
+  <h2>Ons werkgebied</h2>
+  <p class="lead">Wij werken in heel Zeeland, heel Noord-Brabant en heel Zuid-Holland. De plaatsen hieronder zijn maar een greep.</p>
+  <div class="regio-grid"><div class="regio"><h3><a href="zeeland.html">Heel Zeeland</a></h3><p>Wij komen in alle plaatsen in Zeeland, onder andere:</p><div class="chips"><a href="goes.html">Goes</a><a href="middelburg.html">Middelburg</a><a href="vlissingen.html">Vlissingen</a><a href="terneuzen.html">Terneuzen</a><a href="zierikzee.html">Zierikzee</a><a href="hulst.html">Hulst</a><a href="tholen.html">Tholen</a><a href="kapelle.html">Kapelle</a><a href="yerseke.html">Yerseke</a><a href="krabbendijke.html">Krabbendijke</a></div></div><div class="regio"><h3><a href="noord-brabant.html">Heel Noord-Brabant</a></h3><p>Wij komen in alle plaatsen in Noord-Brabant, onder andere:</p><div class="chips"><a href="breda.html">Breda</a><a href="roosendaal.html">Roosendaal</a><a href="bergen-op-zoom.html">Bergen op Zoom</a><a href="steenbergen.html">Steenbergen</a><a href="woensdrecht.html">Woensdrecht</a><a href="etten-leur.html">Etten-Leur</a><a href="oudenbosch.html">Oudenbosch</a><a href="moerdijk.html">Moerdijk</a><a href="oosterhout.html">Oosterhout</a><a href="tilburg.html">Tilburg</a><a href="den-bosch.html">Den Bosch</a><a href="eindhoven.html">Eindhoven</a></div></div><div class="regio"><h3><a href="zuid-holland.html">Heel Zuid-Holland</a></h3><p>Wij komen in alle plaatsen in Zuid-Holland, onder andere:</p><div class="chips"><a href="rotterdam.html">Rotterdam</a><a href="dordrecht.html">Dordrecht</a><a href="zwijndrecht.html">Zwijndrecht</a><a href="ridderkerk.html">Ridderkerk</a><a href="barendrecht.html">Barendrecht</a><a href="spijkenisse.html">Spijkenisse</a><a href="oud-beijerland.html">Oud-Beijerland</a><a href="hellevoetsluis.html">Hellevoetsluis</a></div></div></div>
+  <div class="niet-gevonden"><div><strong>Staat uw plaats er niet tussen?</strong><span>Vraag het gewoon. Grote kans dat wij ook bij u in de buurt werken.</span></div>
+  <a class="btn-whatsapp" href="https://wa.me/31685047832?text=Hoi%2C%20ik%20woon%20in%20%5Bplaats%5D.%20Komen%20jullie%20hier%20ook%3F" target="_blank" rel="noopener">💬 Vraag het via WhatsApp</a></div>
+</div></section><section id="aanvraag"><div class="wrap two-col">
+  <div>
+    <span class="eyebrow">Vrijblijvend</span>
+    <h2>Gratis offerte aanvragen</h2>
+    <p class="lead">Laat uw naam en nummer achter, dan bellen wij u binnen 24 uur terug. Liever direct contact? Bel of app ons, elke dag van 08:00 tot 18:00.</p>
+    <div class="hero-btns" style="margin-top:1.5rem">
+      <a class="btn-dark" href="tel:+31685047832">📞 06 85 04 78 32</a>
+      <a class="btn-whatsapp" href="https://wa.me/31685047832" target="_blank" rel="noopener">💬 WhatsApp</a>
+    </div>
+  </div>
+  <form class="form-box pk-form" action="https://formspree.io/f/xwvyoekz" method="POST">
+    <input type="hidden" name="_subject" value="Aanvraag via website">
+    <div class="form-grid">
+      <div><label for="f-naam">Naam</label><input id="f-naam" name="naam" required autocomplete="name"></div>
+      <div><label for="f-tel">Telefoon</label><input id="f-tel" type="tel" name="telefoon" required autocomplete="tel"></div>
+      <div class="full"><label for="f-plaats">Woonplaats</label><input id="f-plaats" name="plaats" autocomplete="address-level2"></div>
+      <div class="full"><label for="f-oms">Korte omschrijving (optioneel)</label><textarea id="f-oms" name="omschrijving" rows="3"></textarea></div>
+    </div>
+    <button type="submit">Bel mij terug →</button>
+    <div class="form-ok">Bedankt! Wij nemen binnen 24 uur contact met u op.</div>
+    <p class="form-alt">Uitgebreide aanvraag met foto's? <a href="index.html#offerte">Gebruik het volledige formulier</a></p>
+  </form>
+</div></section><section class="cta-strip"><h2>Elektricien nodig?</h2><p>Vraag vrijblijvend een offerte aan of stuur een foto van uw meterkast via WhatsApp.</p><a href="#aanvraag" class="btn-primary">Gratis offerte aanvragen</a></section>
+<a href="https://wa.me/31685047832" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">⚡ PK <span>ELEKTRO</span></div>
-    <div class="footer-info">KVK: 87921529 · © 2026 PK Elektro · Alle rechten voorbehouden</div>
+    <div><div class="footer-logo"><img src="pk-elektro-logo-wit.png" alt="PK Elektro" width="50" height="44"></div><p>Gecertificeerd elektricien voor nieuwbouw, renovatie en particulieren. VCA · NEN 1010 · NEN 3140 · GPI.</p></div>
+    <div><h4>Diensten</h4><a href="groepenkast-vervangen.html">Groepenkast vervangen</a><a href="laadpaal-installatie.html">Laadpaal installatie</a><a href="thuisbatterij.html">Thuisbatterij</a><a href="airco-installatie.html">Airco installatie</a><a href="storing-stroomuitval.html">Storing & stroomuitval</a><a href="nieuwbouw-verbouwing.html">Nieuwbouw & verbouwing</a></div>
+    <div><h4>Werkgebied</h4><a href="zeeland.html">Zeeland</a><a href="noord-brabant.html">Noord-Brabant</a><a href="zuid-holland.html">Zuid-Holland</a><a href="blog.html" style="margin-top:.6rem">Blog & tips</a></div>
+    <div><h4>Contact</h4><a href="tel:+31685047832">📞 06 85 04 78 32</a><a href="https://wa.me/31685047832" target="_blank" rel="noopener">💬 WhatsApp</a><a href="mailto:info@pk-elektro.nl">✉ info@pk-elektro.nl</a><p style="margin-top:.5rem">Elke dag 08:00 – 18:00</p></div>
   </div>
+  <div class="footer-bottom">KVK: 87921529 · © 2026 PK Elektro · Alle rechten voorbehouden</div>
 </footer>
-
+<script>
+function pkMenu(){var m=document.getElementById('pkMobile'),b=document.querySelector('.nav-hamburger');m.classList.toggle('active');b.classList.toggle('active');document.body.classList.toggle('menu-open',m.classList.contains('active'));}
+document.querySelectorAll('.pk-form').forEach(function(f){f.addEventListener('submit',function(ev){ev.preventDefault();
+fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){f.reset();f.querySelector('.form-ok').style.display='block';if(typeof gtag==='function')gtag('event','generate_lead',{dienst:(f.dienst||{}).value||'algemeen'});}else alert('Er ging iets mis. Bel of WhatsApp ons gerust.');}).catch(function(){alert('Er ging iets mis. Bel of WhatsApp ons gerust.');});});});
+</script>
 </body>
 </html>

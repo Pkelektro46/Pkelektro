@@ -1,0 +1,14 @@
+PK Elektro website - update 21 oktober 2026
+
+UPLOADEN (GitHub, repo Pkelektro46/Pkelektro):
+1. Pak deze zip uit op je computer.
+2. Ga op GitHub naar je repo en klik "Add file" > "Upload files".
+3. Sleep ALLE uitgepakte bestanden in het venster (niet de map zelf, de bestanden). LEES-MIJ.txt mag je overslaan.
+4. Bestaande bestanden met dezelfde naam (index.html, roosendaal.html, sitemap.xml enz.) worden automatisch vervangen.
+5. Klik "Commit changes". Na 1-2 minuten staat alles live.
+
+DAARNA:
+- Ga naar Google Search Console > Sitemaps en dien https://www.pk-elektro.nl/sitemap.xml opnieuw in.
+
+KLEUR AANPASSEN:
+- Open pk-style.css, bovenaan staan de regels onder "MERKKLEUR".
