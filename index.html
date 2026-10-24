@@ -94,6 +94,8 @@ gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personali
   .nav-mobile-menu a { padding: 1rem 2.5rem; color: var(--black); text-decoration: none; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid var(--border); }
   .nav-mobile-menu a:last-child { border-bottom: none; }
   .nav-mobile-menu a:hover { background: var(--gray); }
+  .nav-mobile-menu a.mob-tel { background: var(--accent); color: #fff; font-weight: 700; }
+  .nav-mobile-menu a.mob-tel:hover { background: var(--accent-dark); }
 
   /* HERO */
   .hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
@@ -107,7 +109,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
   .hero-content { position: relative; z-index: 2; width: 100%; max-width: 1100px; margin: 0 auto; padding: 6rem 2.5rem 4rem }
   .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(3rem, 7vw, 5.5rem); color: #fff; line-height: 0.95; text-transform: uppercase; margin-bottom: 1.25rem; max-width: 700px; }
   .hero h1 span { color: var(--accent); }
-  .hero-slogan { color: rgba(255,255,255,0.65); font-size: 1.1rem; font-style: italic; margin-bottom: 2rem; max-width: 500px; }
+  .hero-slogan { color: rgba(255,255,255,0.65); font-size: 1.1rem; font-style: normal; margin-bottom: 2rem; max-width: 500px; }
   .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
   .btn-primary { background: var(--accent); color: #fff; padding: 0.9rem 2rem; font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 0.95rem; border: none; cursor: pointer; display: inline-block; text-decoration: none; transition: background 0.2s; }
   .btn-primary:hover { background: var(--accent-dark); }
@@ -118,7 +120,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
   .btn-ghost { background: transparent; color: #fff; padding: 0.9rem 2rem; font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.3); cursor: pointer; display: inline-block; text-decoration: none; transition: border-color 0.2s; }
   .btn-ghost:hover { border-color: #fff; }
   .hero-stats { display: flex; gap: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; flex-wrap: wrap; }
-  .hero-stat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 1.8rem; font-weight: 900; color: var(--accent); line-height: 1; }
+  .hero-stat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--accent); line-height: 1; }
   .hero-stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 0.2rem; }
 
   /* BADGE */
@@ -206,6 +208,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
   .over-left { padding: 5rem 3rem 5rem 2.5rem; }
   .over-left .section-title { margin-bottom: 1rem; }
   .over-left > p { color: var(--muted); line-height: 1.75; margin-bottom: 2rem; }
+  .over-left > p:has(+ p) { margin-bottom: 1rem; }
   .checks { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2.5rem; }
   .checks li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.92rem; color: var(--black); }
   .check-dot { width: 20px; height: 20px; min-width: 20px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 0.65rem; color: #fff; font-weight: 700; margin-top: 2px; }
@@ -336,7 +339,8 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
 .hero-overlay { background: linear-gradient(90deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.55) 45%, rgba(10,10,10,0.05) 100%), linear-gradient(to top, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0) 40%) !important; }
 @media (max-width: 900px) { .hs-img { right: 0; width: 100%; opacity: 0.6; } .hero-overlay { background: rgba(10,10,10,0.55) !important; } }
 @media (prefers-reduced-motion: reduce) { .hero-slide { transition: none; } }
-.hero h1, .hero-slogan, .hero-stats { text-shadow: 0 2px 14px rgba(0,0,0,0.6); }
+.hero h1, .hero-slogan, .hero-stats { text-shadow: none; }
+@media (min-width: 901px) { .hero-content { max-width: none; margin: 0; padding-left: 5vw; padding-right: 0; } .hero .hero-content h1, .hero .hero-btns, .hero .hero-stats { max-width: min(700px, calc(46vw - 2rem)); } }
 
 .nav-tel{color:#111;font-weight:700;font-size:.9rem;text-decoration:none;margin-right:1rem;white-space:nowrap}.nav-tel:hover{color:var(--accent)}@media(max-width:900px){.nav-tel{display:none}}
 
@@ -496,8 +500,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
   <a class="nav-cta" href="#offerte">Gratis offerte</a>
 </nav>
  <div class="nav-mobile-menu" id="navMobileMenu">
-  <a href="blog.html">Blog</a>
-  <a href="tel:+31685047832" style="color:var(--accent-dark)">📞 Bel direct: 06 85 04 78 32</a>
+  <a href="tel:+31685047832" class="mob-tel">📞 Bel direct: 06 85 04 78 32</a>
   <div class="mobile-menu-item" id="mobileDienstenItem">
     <button class="mobile-menu-toggle" onclick="toggleDienstenSub()">
       Diensten <span class="mobile-chevron">&#9660;</span>
@@ -596,6 +599,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
   </div>
   <a href="#over" onclick="toggleMobileMenu()">Over ons</a>
   <a href="#certificaten" onclick="toggleMobileMenu()">Certificaten</a>
+  <a href="blog.html">Blog</a>
   <a href="#offerte" onclick="toggleMobileMenu()">Offerte</a>
   <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
 </div>
@@ -658,17 +662,12 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
 <div id="over" class="over-wrap">
   <div class="over-inner">
     <div class="over-left">
-      <span class="section-tag">Waarom PK Elektro</span>
-      <h2 class="section-title">Vakmanschap dat u kunt vertrouwen</h2>
-      <p>Wij werken snel, netjes en transparant. Geen verborgen kosten en altijd eerlijk advies. Uw veiligheid staat voorop — altijd conform de Nederlandse normen.</p>
-      <ul class="checks">
-        <li><span class="check-dot">✓</span> Vaste, eerlijke prijzen — geen verrassingen achteraf</li>
-        <li><span class="check-dot">✓</span> VCA, NEN 1010 en NEN 3140 gecertificeerd</li>
-        <li><span class="check-dot">✓</span> Netjes, opgeruimd en respectvol in uw woning</li>
-        <li><span class="check-dot">✓</span> Gratis vrijblijvende offerte op maat</li>
-        <li><span class="check-dot">✓</span> Spoedreparaties mogelijk buiten kantooruren</li>
-      </ul>
-      <a href="#offerte" class="btn-primary">Vraag offerte aan</a>
+      <span class="section-tag">Over ons</span>
+      <h2 class="section-title">Vakwerk waar u op kunt bouwen</h2>
+      <p>PK Elektro is een team van gedreven elektriciens met samen meer dan 10 jaar ervaring in de elektrotechniek. We werken in Zeeland, Noord-Brabant en Zuid-Holland. Of het nu gaat om een nieuwe groepenkast, een laadpaal bij huis of een complete installatie: wij zorgen dat alles veilig, netjes en volgens de normen wordt aangelegd.</p>
+      <p>Wij geloven dat elektra gewoon goed geregeld moet zijn. Geen vage afspraken of verrassingen achteraf, maar een duidelijke prijs vooraf en vakmensen die doen wat ze beloven. Zo bouwen we aan langdurige samenwerkingen met particulieren, aannemers en bedrijven.</p>
+      <p>Wat ons onderscheidt is de manier van werken. We luisteren naar wat u nodig heeft, denken mee over slimme oplossingen en laten de werkplek altijd netjes achter. Zo weet u zeker dat uw installatie in goede handen is.</p>
+      <a href="#contact" class="btn-primary">Wilt u kennismaken met PK Elektro?</a>
     </div>
     <div class="over-right" onclick="openLightbox(this.querySelector('img').src)">
 <img src="nieuwbouw-bedrijfswagen_1.jpg" alt="PK Elektro bedrijfswagen" loading="lazy">    </div>
