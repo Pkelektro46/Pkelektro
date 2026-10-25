@@ -28,6 +28,9 @@ gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personali
  <meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.bunny.net"><link href="https://fonts.bunny.net/css?family=barlow:400,500,600,700|barlow-condensed:700,800,900&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>Elektricien Zeeland, Noord-Brabant & Zuid-Holland | PK Elektro</title>
 <meta name="description" content="Gecertificeerd elektricien in Goes, Bergen op Zoom en Roosendaal. Groepenkast, laadpaal, thuisbatterij, scope keuring. Gratis offerte.">
 <link rel="canonical" href="https://www.pk-elektro.nl/">
@@ -335,9 +338,9 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
 .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.4s ease; overflow: hidden; }
 .hero-slide.active { opacity: 1; }
 .hs-blur { position: absolute; inset: -50px; background-size: cover; background-position: center; filter: blur(30px) brightness(0.5); }
-.hs-img { position: absolute; top: 64px; left: 0; right: 0; bottom: 0; width: 100%; height: calc(100% - 64px); object-fit: cover; }
-.hero-overlay { background: linear-gradient(90deg, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.6) 50%, rgba(10,10,10,0.25) 100%), linear-gradient(to top, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0) 40%) !important; }
-@media (max-width: 900px) { .hs-img { opacity: 0.6; } .hero-overlay { background: rgba(10,10,10,0.55) !important; } }
+.hs-img { position: absolute; top: 64px; bottom: 0; right: 3%; width: 46%; height: calc(100% - 64px); object-fit: contain; }
+.hero-overlay { background: linear-gradient(90deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.55) 45%, rgba(10,10,10,0.05) 100%), linear-gradient(to top, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0) 40%) !important; }
+@media (max-width: 900px) { .hs-img { right: 0; width: 100%; opacity: 0.6; } .hero-overlay { background: rgba(10,10,10,0.55) !important; } }
 @media (prefers-reduced-motion: reduce) { .hero-slide { transition: none; } }
 .hero h1, .hero-slogan, .hero-stats { text-shadow: none; }
 
