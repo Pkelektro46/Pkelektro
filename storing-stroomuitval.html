@@ -9,6 +9,9 @@ gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personali
   function has(){try{return /(?:^|;\s*)cookieyes-consent=[^;]*analytics:yes/.test(document.cookie);}catch(e){return false;}}
   function upd(ok){gtag('consent','update',{analytics_storage:ok?'granted':'denied'});}
   if(has()) upd(true);
+  function ads(ok){var v=ok?'granted':'denied';gtag('consent','update',{ad_storage:v,ad_user_data:v,ad_personalization:v});}
+  if(/(?:^|;\s*)cookieyes-consent=[^;]*advertisement:yes/.test(document.cookie)) ads(true);
+  document.addEventListener('cookieyes_consent_update',function(e){var a=(e.detail&&e.detail.accepted)||[];ads(a.indexOf('advertisement')>-1);});
   document.addEventListener('cookieyes_consent_update',function(e){
     var a=(e.detail&&e.detail.accepted)||[];
     upd(a.indexOf('analytics')>-1 || has());
@@ -17,7 +20,9 @@ gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personali
 </script>
 <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/6c3d7d5b536f0940a0d6b87baa94b870/script.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X041V9FG1F"></script>
-<script>gtag('js', new Date()); gtag('config', 'G-X041V9FG1F');</script>
+<script>gtag('js', new Date()); gtag('config', 'G-X041V9FG1F');
+  gtag('config', 'AW-18430239681');
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href')||'';if(h.indexOf('wa.me')>-1)gtag('event','conversion',{send_to:'AW-18430239681/9VaNCKebqq4dEMHHnNRE'});else if(h.indexOf('tel:')===0)gtag('event','conversion',{send_to:'AW-18430239681/ZMJmCKqbqq4dEMHHnNRE'});});</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Storing of stroomuitval? Elektricien voor storingen | PK Elektro</title>
@@ -148,7 +153,7 @@ gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personali
 <script>
 function pkMenu(){var m=document.getElementById('pkMobile'),b=document.querySelector('.nav-hamburger');m.classList.toggle('active');b.classList.toggle('active');document.body.classList.toggle('menu-open',m.classList.contains('active'));}
 document.querySelectorAll('.pk-form').forEach(function(f){f.addEventListener('submit',function(ev){ev.preventDefault();
-fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){f.reset();f.querySelector('.form-ok').style.display='block';if(typeof gtag==='function')gtag('event','generate_lead',{dienst:(f.dienst||{}).value||'algemeen'});}else alert('Er ging iets mis. Bel of WhatsApp ons gerust.');}).catch(function(){alert('Er ging iets mis. Bel of WhatsApp ons gerust.');});});});
+fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){f.reset();f.querySelector('.form-ok').style.display='block';if(typeof gtag==='function')gtag('event','conversion',{send_to:'AW-18430239681/FYRcCK2bqq4dEMHHnNRE'});gtag('event','generate_lead',{dienst:(f.dienst||{}).value||'algemeen'});}else alert('Er ging iets mis. Bel of WhatsApp ons gerust.');}).catch(function(){alert('Er ging iets mis. Bel of WhatsApp ons gerust.');});});});
 </script>
 </body>
 </html>
