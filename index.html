@@ -759,7 +759,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
       </form>
     </div>
     <p class="qc-or">Of vul het uitgebreide formulier in voor een offerte op maat:</p>
-    <form action="https://formspree.io/f/xwvyoekz" method="POST">
+    <form class="pk-offerte-form" action="https://formspree.io/f/xwvyoekz" method="POST">
       <div class="form-grid">
         <div class="form-group">
           <label>Naam</label>
@@ -799,6 +799,8 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
         </div>
       </div>
       <button class="submit-btn" type="submit">Verstuur aanvraag →</button>
+      <div class="pk-offerte-ok" style="display:none;margin-top:1rem;background:#E6F7F2;border:1px solid #00B37A;padding:1rem;font-weight:600;text-align:center">Bedankt! We nemen binnen 24 uur contact met u op.</div>
+      <div class="pk-offerte-err" style="display:none;margin-top:1rem;color:#b00020;font-weight:600;text-align:center">Versturen is niet gelukt. Bel of app ons op 06 85 04 78 32.</div>
     </form>
   </div>
 </section>
@@ -1062,5 +1064,6 @@ if(h<8){el.textContent='Vandaag vanaf 08:00';}else if(h>=18){el.textContent='Mor
 })();
 </script>
 <script>document.querySelectorAll('.qc-form').forEach(function(f){f.addEventListener('submit',function(e){e.preventDefault();fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){f.reset();f.querySelector('.qc-ok').style.display='block';if(typeof gtag==='function')gtag('event','conversion',{send_to:'AW-18430239681/FYRcCK2bqq4dEMHHnNRE'});gtag('event','generate_lead',{dienst:'terugbellen'});}else alert('Er ging iets mis. Bel of WhatsApp ons gerust.');}).catch(function(){alert('Er ging iets mis. Bel of WhatsApp ons gerust.');});});});</script>
+<script>document.querySelectorAll('.pk-offerte-form').forEach(function(f){f.addEventListener('submit',function(e){e.preventDefault();var b=f.querySelector('button[type=submit]');if(b)b.disabled=true;fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){f.reset();f.querySelector('.pk-offerte-ok').style.display='block';f.querySelector('.pk-offerte-err').style.display='none';if(typeof gtag==='function'){gtag('event','conversion',{send_to:'AW-18430239681/FYRcCK2bqq4dEMHHnNRE'});gtag('event','generate_lead',{dienst:'offerte'});}}else{throw 0}}).catch(function(){f.querySelector('.pk-offerte-err').style.display='block';}).finally(function(){if(b)b.disabled=false;});});});</script>
 </body>
 </html>
