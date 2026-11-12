@@ -82,17 +82,18 @@ gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personali
       <a class="btn-whatsapp" href="https://wa.me/31685047832" target="_blank" rel="noopener">💬 WhatsApp</a>
     </div>
   </div>
-  <form class="form-box pk-form" action="https://formspree.io/f/xwvyoekz" method="POST">
+  <form class="form-box pk-form" action="https://formspree.io/f/xwvyoekz" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="dienst" value="Groepenkast vervangen"><input type="hidden" name="_subject" value="Aanvraag groepenkast vervangen via website">
     <div class="form-grid">
       <div><label for="f-naam">Naam</label><input id="f-naam" name="naam" required autocomplete="name"></div>
       <div><label for="f-tel">Telefoon</label><input id="f-tel" type="tel" name="telefoon" required autocomplete="tel"></div>
       <div class="full"><label for="f-plaats">Woonplaats</label><input id="f-plaats" name="plaats" autocomplete="address-level2"></div>
       <div class="full"><label for="f-oms">Korte omschrijving (optioneel)</label><textarea id="f-oms" name="omschrijving" rows="3"></textarea></div>
+      <div class="full"><label for="f-foto">Foto's toevoegen (optioneel)</label><input id="f-foto" class="pk-foto" type="file" name="foto" accept="image/*" multiple><small class="pk-foto-info" style="display:block;font-size:.8rem;color:#666;margin-top:.35rem">Bijvoorbeeld van uw groepenkast of de situatie. Max. 5 foto's.</small></div>
     </div>
     <button type="submit">Bel mij terug →</button>
     <div class="form-ok">Bedankt! Wij nemen binnen 24 uur contact met u op.</div>
-    <p class="form-alt">Uitgebreide aanvraag met foto's? <a href="index.html#offerte">Gebruik het volledige formulier</a></p>
+    <p class="form-alt">Liever een uitgebreide offerte? <a href="index.html#offerte">Gebruik het volledige formulier</a></p>
   </form>
 </div></section>
 <section class="cta-strip"><h2>Elektricien nodig?</h2><p>Vraag vrijblijvend een offerte aan of stuur een foto van uw meterkast via WhatsApp.</p><a href="#aanvraag" class="btn-primary">Gratis offerte aanvragen</a></section>
@@ -108,8 +109,9 @@ gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personali
 </footer>
 <script>
 function pkMenu(){var m=document.getElementById('pkMobile'),b=document.querySelector('.nav-hamburger');m.classList.toggle('active');b.classList.toggle('active');document.body.classList.toggle('menu-open',m.classList.contains('active'));}
-document.querySelectorAll('.pk-form').forEach(function(f){f.addEventListener('submit',function(ev){ev.preventDefault();
-fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){f.reset();f.querySelector('.form-ok').style.display='block';if(typeof gtag==='function')gtag('event','conversion',{send_to:'AW-18430239681/FYRcCK2bqq4dEMHHnNRE'});gtag('event','generate_lead',{dienst:(f.dienst||{}).value||'algemeen'});}else alert('Er ging iets mis. Bel of WhatsApp ons gerust.');}).catch(function(){alert('Er ging iets mis. Bel of WhatsApp ons gerust.');});});});
+document.querySelectorAll('.pk-form').forEach(function(f){f.addEventListener('submit',function(ev){ev.preventDefault();var b=f.querySelector('button[type=submit]'),t=b?b.textContent:'';if(b){b.disabled=true;b.textContent='Versturen…';}
+(window.pkFotoKlaar?window.pkFotoKlaar(f):Promise.resolve()).then(function(){return fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}});}).then(function(r){if(r.ok){f.reset();f.querySelector('.form-ok').style.display='block';if(typeof gtag==='function'){gtag('event','conversion',{send_to:'AW-18430239681/FYRcCK2bqq4dEMHHnNRE'});gtag('event','generate_lead',{dienst:(f.dienst||{}).value||'algemeen'});}}else alert('Er ging iets mis. Bel of WhatsApp ons gerust.');}).catch(function(){alert('Er ging iets mis. Bel of WhatsApp ons gerust.');}).then(function(){if(b){b.disabled=false;b.textContent=t;}});});});
 </script>
+<script src="pk-upload.js"></script>
 </body>
 </html>

@@ -748,18 +748,7 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
     <span class="section-tag">Vrijblijvend</span>
     <h2 class="section-title">Vraag een offerte aan</h2>
     <p>Vul het formulier in en wij nemen binnen 24 uur contact met u op. Volledig vrijblijvend en kosteloos.</p>
-    <div class="quick-call">
-      <div class="qc-text"><strong>Snel geregeld: wij bellen u terug</strong><span>Alleen naam en nummer. Binnen 24 uur contact.</span></div>
-      <form class="qc-form" action="https://formspree.io/f/xwvyoekz" method="POST">
-        <input type="hidden" name="_subject" value="Terugbelverzoek via website">
-        <input type="text" name="naam" placeholder="Naam" required aria-label="Naam">
-        <input type="tel" name="telefoon" placeholder="Telefoonnummer" required aria-label="Telefoonnummer">
-        <button type="submit">Bel mij terug</button>
-        <div class="qc-ok">Bedankt! Wij bellen u binnen 24 uur.</div>
-      </form>
-    </div>
-    <p class="qc-or">Of vul het uitgebreide formulier in voor een offerte op maat:</p>
-    <form class="pk-offerte-form" action="https://formspree.io/f/xwvyoekz" method="POST">
+    <form class="pk-offerte-form" action="https://formspree.io/f/xwvyoekz" method="POST" enctype="multipart/form-data">
       <div class="form-grid">
         <div class="form-group">
           <label>Naam</label>
@@ -796,6 +785,11 @@ background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);  }
         <div class="form-group full">
           <label>Omschrijving</label>
           <textarea name="omschrijving" placeholder="Beschrijf kort uw situatie of vraag..." rows="5"></textarea>
+        </div>
+        <div class="form-group full">
+          <label for="o-foto">Foto's toevoegen (optioneel)</label>
+          <input id="o-foto" class="pk-foto" type="file" name="foto" accept="image/*" multiple>
+          <small class="pk-foto-info" style="display:block;font-size:.8rem;color:#666;margin-top:.35rem">Bijvoorbeeld van uw groepenkast of de situatie. Max. 5 foto's.</small>
         </div>
       </div>
       <button class="submit-btn" type="submit">Verstuur aanvraag →</button>
@@ -1064,6 +1058,7 @@ if(h<8){el.textContent='Vandaag vanaf 08:00';}else if(h>=18){el.textContent='Mor
 })();
 </script>
 <script>document.querySelectorAll('.qc-form').forEach(function(f){f.addEventListener('submit',function(e){e.preventDefault();fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){f.reset();f.querySelector('.qc-ok').style.display='block';if(typeof gtag==='function')gtag('event','conversion',{send_to:'AW-18430239681/FYRcCK2bqq4dEMHHnNRE'});gtag('event','generate_lead',{dienst:'terugbellen'});}else alert('Er ging iets mis. Bel of WhatsApp ons gerust.');}).catch(function(){alert('Er ging iets mis. Bel of WhatsApp ons gerust.');});});});</script>
-<script>document.querySelectorAll('.pk-offerte-form').forEach(function(f){f.addEventListener('submit',function(e){e.preventDefault();var b=f.querySelector('button[type=submit]');if(b)b.disabled=true;fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){f.reset();f.querySelector('.pk-offerte-ok').style.display='block';f.querySelector('.pk-offerte-err').style.display='none';if(typeof gtag==='function'){gtag('event','conversion',{send_to:'AW-18430239681/FYRcCK2bqq4dEMHHnNRE'});gtag('event','generate_lead',{dienst:'offerte'});}}else{throw 0}}).catch(function(){f.querySelector('.pk-offerte-err').style.display='block';}).finally(function(){if(b)b.disabled=false;});});});</script>
+<script>document.querySelectorAll('.pk-offerte-form').forEach(function(f){f.addEventListener('submit',function(e){e.preventDefault();var b=f.querySelector('button[type=submit]');if(b)b.disabled=true;(window.pkFotoKlaar?window.pkFotoKlaar(f):Promise.resolve()).then(function(){return fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}});}).then(function(r){if(r.ok){f.reset();f.querySelector('.pk-offerte-ok').style.display='block';f.querySelector('.pk-offerte-err').style.display='none';if(typeof gtag==='function'){gtag('event','conversion',{send_to:'AW-18430239681/FYRcCK2bqq4dEMHHnNRE'});gtag('event','generate_lead',{dienst:'offerte'});}}else{throw 0}}).catch(function(){f.querySelector('.pk-offerte-err').style.display='block';}).finally(function(){if(b)b.disabled=false;});});});</script>
+<script src="pk-upload.js"></script>
 </body>
 </html>
