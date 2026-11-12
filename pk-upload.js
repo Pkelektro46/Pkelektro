@@ -1,6 +1,6 @@
 /* PK Elektro: foto's in formulieren automatisch verkleinen voor verzending */
 (function(){
-  var MAX=1600, Q=0.8, MAXN=5;
+  var MAX=1600, Q=0.8, MAXN=10;
   function shrink(file){
     return new Promise(function(res){
       if(!/^image\//.test(file.type)||file.type==='image/gif'){res(file);return;}
